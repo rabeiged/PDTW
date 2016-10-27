@@ -11,7 +11,7 @@ namespace WebVialisMVC.Contexto
 {
     using System;
     using System.Collections.Generic;
-
+    
     public partial class Usuario
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,32 +20,15 @@ namespace WebVialisMVC.Contexto
             this.Asistencias = new HashSet<Asistencia>();
             this.Pagoes = new HashSet<Pago>();
         }
-
+    
         public string run_user { get; set; }
         public string passw { get; set; }
         public string id_contrato { get; set; }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Asistencia> Asistencias { get; set; }
         public virtual Contrato Contrato { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pago> Pagoes { get; set; }
-    }
-
-    public class UserBusinessLogic
-    {
-        string conStr = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-        public int ValidarUsuario(Usuario usuario)
-        {
-            using (System.Data.SqlClient.SqlConnection conObj = new System.Data.SqlClient.SqlConnection(conStr))
-            {
-                System.Data.SqlClient.SqlCommand comObj = new System.Data.SqlClient.SqlCommand("uspLogin", conObj);
-                comObj.CommandType = System.Data.CommandType.StoredProcedure;
-                comObj.Parameters.Add(new System.Data.SqlClient.SqlParameter("@run_user", usuario.run_user));
-                comObj.Parameters.Add(new System.Data.SqlClient.SqlParameter("@passw", usuario.passw));
-                conObj.Open();
-                return Convert.ToInt32(comObj.ExecuteScalar());
-            }
-        }
     }
 }

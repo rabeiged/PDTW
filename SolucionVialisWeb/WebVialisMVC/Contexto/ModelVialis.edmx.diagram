@@ -20,7 +20,7 @@
         <EntityTypeShape EntityType="vialisModel.detalle_participacion" Width="1.5" PointX="10.5" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="vialisModel.Empresa" Width="1.5" PointX="0.75" PointY="15.625" IsExpanded="true" />
         <EntityTypeShape EntityType="vialisModel.Etapa" Width="1.5" PointX="8.25" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="vialisModel.Factura" Width="1.5" PointX="6" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="vialisModel.Factura" Width="1.5" PointX="7.375" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="vialisModel.Hito" Width="1.5" PointX="10.5" PointY="15" IsExpanded="true" />
         <EntityTypeShape EntityType="vialisModel.Inspeccion_tecnica" Width="1.5" PointX="15" PointY="13.875" IsExpanded="true" />
         <EntityTypeShape EntityType="vialisModel.Pago" Width="1.5" PointX="3.75" PointY="2.125" IsExpanded="true" />

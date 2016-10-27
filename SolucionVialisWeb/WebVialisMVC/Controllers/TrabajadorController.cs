@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebVialisMVC.Models;
 using WebVialisMVC.Contexto;
 
 namespace WebVialisMVC.Controllers
@@ -27,7 +28,7 @@ namespace WebVialisMVC.Controllers
                 if(UserBL.ValidarUsuario(usuario) > 0)
                 {
                     message = "Success";
-                    return RedirectToAction("Informacion", "Trabajador");
+                    //return RedirectToAction("Informacion", "Trabajador");
                 }
                 else
                 {

@@ -1,0 +1,2597 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="vialisModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Acta_reunion">
+          <Key>
+            <PropertyRef Name="id_reunion" />
+          </Key>
+          <Property Name="id_reunion" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="id_proyecto" Type="varchar" MaxLength="100" />
+          <Property Name="rol_unico_tributario" Type="varchar" MaxLength="100" />
+          <Property Name="id_etapa" Type="varchar" MaxLength="100" />
+          <Property Name="detalle_minuta" Type="varchar" MaxLength="1" />
+          <Property Name="fecha_reunion" Type="date" />
+        </EntityType>
+        <EntityType Name="AFP">
+          <Key>
+            <PropertyRef Name="id_AFP" />
+          </Key>
+          <Property Name="id_AFP" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="nombre_afp" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Asistencia">
+          <Key>
+            <PropertyRef Name="id_asistencia" />
+          </Key>
+          <Property Name="id_asistencia" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="run_user" Type="varchar" MaxLength="12" />
+          <Property Name="id_proyecto" Type="varchar" MaxLength="100" />
+          <Property Name="fecha_asistencia" Type="date" />
+        </EntityType>
+        <EntityType Name="boleta">
+          <Key>
+            <PropertyRef Name="id_boleta" />
+          </Key>
+          <Property Name="id_boleta" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_proveedor" Type="varchar" MaxLength="1" />
+          <Property Name="fecha" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="categoria">
+          <Key>
+            <PropertyRef Name="id_categoria" />
+          </Key>
+          <Property Name="id_categoria" Type="numeric" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="nombre_categoria" Type="varchar" MaxLength="50" />
+          <Property Name="descripcion" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="ciudad">
+          <Key>
+            <PropertyRef Name="id_ciudad" />
+          </Key>
+          <Property Name="id_ciudad" Type="numeric" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="ciudad" Type="varchar" MaxLength="1" />
+          <Property Name="id_region" Type="numeric" Precision="3" Scale="0" />
+        </EntityType>
+        <EntityType Name="comuna">
+          <Key>
+            <PropertyRef Name="id_comuna" />
+          </Key>
+          <Property Name="id_comuna" Type="numeric" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="nombre_comuna" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_ciudad" Type="numeric" Precision="3" Scale="0" />
+        </EntityType>
+        <EntityType Name="Contrato">
+          <Key>
+            <PropertyRef Name="id_contrato" />
+          </Key>
+          <Property Name="id_contrato" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="nombre_contrato" Type="varchar" MaxLength="30" />
+          <Property Name="fecha_inicio" Type="date" />
+          <Property Name="fecha_termino" Type="date" />
+          <Property Name="sueldo_base" Type="numeric" Precision="28" Scale="0" />
+          <Property Name="dias_mesuales_req" Type="numeric" Precision="28" Scale="0" />
+          <Property Name="valor_dia" Type="numeric" Precision="28" Scale="0" />
+          <Property Name="descripcion" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Cotizacion">
+          <Key>
+            <PropertyRef Name="id_cotizacion" />
+          </Key>
+          <Property Name="id_cotizacion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="id_proyecto" Type="varchar" MaxLength="100" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="id_proveedor" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="descuento">
+          <Key>
+            <PropertyRef Name="id_descto" />
+          </Key>
+          <Property Name="id_descto" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="porc_descto" Type="numeric" Precision="28" Scale="0" />
+          <Property Name="id_AFP" Type="varchar" MaxLength="1" />
+          <Property Name="id_seguro_sald" Type="varchar" MaxLength="50" />
+          <Property Name="Trabajador_empresa_run" Type="varchar" MaxLength="12" />
+          <Property Name="Trabajador_empresa_id_trabajador" Type="numeric" Precision="5" Scale="0" />
+        </EntityType>
+        <EntityType Name="detalle_boleta">
+          <Key>
+            <PropertyRef Name="id_detalle_boleta" />
+          </Key>
+          <Property Name="id_detalle_boleta" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="cantidad" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="precio" Type="numeric" Precision="28" Scale="0" />
+          <Property Name="id_boleta" Type="varchar" MaxLength="50" />
+          <Property Name="id_producto" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="detalle_cotizacion">
+          <Key>
+            <PropertyRef Name="id_detalle_cotizacion" />
+          </Key>
+          <Property Name="id_detalle_cotizacion" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="cantidad" Type="numeric" Precision="28" Scale="0" />
+          <Property Name="precio" Type="numeric" Precision="28" Scale="0" />
+          <Property Name="id_cotizacion1" Type="varchar" MaxLength="100" />
+          <Property Name="id_producto" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="detalle_participacion">
+          <Key>
+            <PropertyRef Name="id_detalle_participacion" />
+          </Key>
+          <Property Name="id_detalle_participacion" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="id_reunion" Type="varchar" MaxLength="1" />
+          <Property Name="run" Type="varchar" MaxLength="12" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="rol_unico_tributario" />
+          </Key>
+          <Property Name="rol_unico_tributario" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="nombre_empresa" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Etapa">
+          <Key>
+            <PropertyRef Name="id_etapa" />
+          </Key>
+          <Property Name="id_etapa" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="id_proyecto" Type="varchar" MaxLength="100" />
+          <Property Name="nombre_etapa" Type="varchar" MaxLength="100" />
+          <Property Name="descripcion_etapa" Type="varchar" MaxLength="100" />
+          <Property Name="fecha_inicio" Type="date" />
+          <Property Name="fecha_termino" Type="date" />
+          <Property Name="nivel_avance" Type="numeric" Precision="3" Scale="0" />
+          <Property Name="id_factura" Type="numeric" Precision="6" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Factura">
+          <Key>
+            <PropertyRef Name="id_factura" />
+          </Key>
+          <Property Name="id_factura" Type="numeric" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="detalle_factura" Type="varchar" MaxLength="1" />
+          <Property Name="costo" Type="numeric" Precision="15" Scale="0" />
+          <Property Name="fecha_emision" Type="date" />
+          <Property Name="id_pago" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Hito">
+          <Key>
+            <PropertyRef Name="id_hito" />
+          </Key>
+          <Property Name="id_hito" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="id_etapa" Type="varchar" MaxLength="100" />
+          <Property Name="nombre_hito" Type="varchar" MaxLength="100" />
+          <Property Name="descripcion_hito" Type="varchar" MaxLength="1" />
+          <Property Name="fecha_inicio" Type="date" />
+          <Property Name="fecha_termino" Type="date" />
+          <Property Name="nivel_avance" Type="numeric" Precision="3" Scale="0" />
+        </EntityType>
+        <EntityType Name="Inspeccion_tecnica">
+          <Key>
+            <PropertyRef Name="id_inspeccion_tec" />
+          </Key>
+          <Property Name="id_inspeccion_tec" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="id_tarea" Type="varchar" MaxLength="100" />
+          <Property Name="detalle_inspeccion_t" Type="varchar" MaxLength="1" />
+          <Property Name="nivel_avance" Type="numeric" Precision="3" Scale="0" />
+        </EntityType>
+        <EntityType Name="Pago">
+          <Key>
+            <PropertyRef Name="id_pago" />
+          </Key>
+          <Property Name="id_pago" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="estado_pago" Type="varchar" MaxLength="100" />
+          <Property Name="fecha_pago" Type="date" />
+          <Property Name="costo" Type="numeric" Precision="15" Scale="0" />
+          <Property Name="run_user" Type="varchar" MaxLength="12" />
+        </EntityType>
+        <EntityType Name="participantes">
+          <Key>
+            <PropertyRef Name="run" />
+          </Key>
+          <Property Name="run" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="1" />
+          <Property Name="ap_paterno" Type="varchar" MaxLength="30" />
+          <Property Name="ap_materno" Type="varchar" MaxLength="30" />
+          <Property Name="responsabilidad" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Persona">
+          <Key>
+            <PropertyRef Name="run" />
+          </Key>
+          <Property Name="run" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" />
+          <Property Name="apellido_paterno" Type="varchar" MaxLength="100" />
+          <Property Name="apellido_materno" Type="varchar" MaxLength="1" />
+          <Property Name="sexo" Type="char" MaxLength="1" />
+          <Property Name="fecha_nacimiento" Type="date" />
+          <Property Name="direccion" Type="varchar" MaxLength="100" />
+          <Property Name="id_comuna" Type="numeric" Precision="3" Scale="0" />
+          <Property Name="estado_civil" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="producto">
+          <Key>
+            <PropertyRef Name="id_producto" />
+          </Key>
+          <Property Name="id_producto" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="nombre_producto" Type="varchar" MaxLength="1" />
+          <Property Name="descripcion" Type="varchar" MaxLength="1" />
+          <Property Name="marca" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Proveedor">
+          <Key>
+            <PropertyRef Name="id_proveedor" />
+          </Key>
+          <Property Name="id_proveedor" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="nombre_proveedor" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Proyecto">
+          <Key>
+            <PropertyRef Name="id_proyecto" />
+          </Key>
+          <Property Name="id_proyecto" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="rol_unico_tributario" Type="varchar" MaxLength="100" />
+          <Property Name="nombre_proyecto" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="region">
+          <Key>
+            <PropertyRef Name="id_region" />
+          </Key>
+          <Property Name="id_region" Type="numeric" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="nombre_region" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="registro_avance">
+          <Key>
+            <PropertyRef Name="id_reg_avance" />
+          </Key>
+          <Property Name="id_reg_avance" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="id_tarea" Type="varchar" MaxLength="100" />
+          <Property Name="nivel_avance" Type="numeric" Precision="3" Scale="0" />
+          <Property Name="detalle" Type="varchar" MaxLength="1" />
+          <Property Name="fecha_registro" Type="date" />
+        </EntityType>
+        <EntityType Name="seguro_salud">
+          <Key>
+            <PropertyRef Name="id_seguro_sald" />
+          </Key>
+          <Property Name="id_seguro_sald" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nombre_seg_sald" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Stock_RRFF_EMPRESA">
+          <Key>
+            <PropertyRef Name="id_material" />
+          </Key>
+          <Property Name="id_material" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="rol_unico_tributario" Type="varchar" MaxLength="100" />
+          <Property Name="marca" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="nombre_producto" Type="varchar" MaxLength="100" />
+          <Property Name="cantidad" Type="numeric" Precision="15" Scale="0" />
+          <Property Name="id_boleta" Type="varchar" MaxLength="50" />
+          <Property Name="id_categoria" Type="numeric" Precision="6" Scale="0" />
+        </EntityType>
+        <EntityType Name="stock_RRFF_PROYECTO">
+          <Key>
+            <PropertyRef Name="id_material" />
+          </Key>
+          <Property Name="id_material" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_proyecto" Type="varchar" MaxLength="100" />
+          <Property Name="marca" Type="varchar" MaxLength="30" />
+          <Property Name="nombre_producto" Type="varchar" MaxLength="30" />
+          <Property Name="cantidad" Type="numeric" Precision="15" Scale="0" />
+          <Property Name="id_boleta" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="subcategoria">
+          <Key>
+            <PropertyRef Name="id_subcategoria" />
+          </Key>
+          <Property Name="id_subcategoria" Type="numeric" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="nombre_subcategoria" Type="varchar" MaxLength="50" />
+          <Property Name="descripcion" Type="varchar" MaxLength="1" />
+          <Property Name="id_categoria" Type="numeric" Precision="6" Scale="0" />
+        </EntityType>
+        <EntityType Name="Sueldo">
+          <Key>
+            <PropertyRef Name="id_sueldo" />
+          </Key>
+          <Property Name="id_sueldo" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="id_asignacion" Type="numeric" Precision="28" Scale="0" />
+          <Property Name="dias_trabajados" Type="numeric" Precision="28" Scale="0" />
+          <Property Name="valor_dia" Type="numeric" Precision="28" Scale="0" />
+          <Property Name="total" Type="numeric" Precision="28" Scale="0" />
+        </EntityType>
+        <EntityType Name="Tarea">
+          <Key>
+            <PropertyRef Name="id_tarea" />
+          </Key>
+          <Property Name="id_tarea" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="id_hito" Type="varchar" MaxLength="100" />
+          <Property Name="nombre_tarea" Type="varchar" MaxLength="100" />
+          <Property Name="descripcion_tarea" Type="varchar" MaxLength="1" />
+          <Property Name="fecha_inicio" Type="date" />
+          <Property Name="fecha_termino" Type="date" />
+          <Property Name="nivel_avance" Type="numeric" Precision="3" Scale="0" />
+          <Property Name="costo" Type="numeric" Precision="15" Scale="0" />
+        </EntityType>
+        <EntityType Name="trabajador_asignado">
+          <Key>
+            <PropertyRef Name="id_asignacion" />
+          </Key>
+          <Property Name="id_asignacion" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="responsabilidad" Type="varchar" MaxLength="30" />
+          <Property Name="id_contrato" Type="varchar" MaxLength="30" />
+          <Property Name="id_proyecto" Type="varchar" MaxLength="100" />
+          <Property Name="Trabajador_empresa_run" Type="varchar" MaxLength="12" />
+          <Property Name="Trabajador_empresa_id_trabajador" Type="numeric" Precision="5" Scale="0" />
+        </EntityType>
+        <EntityType Name="Trabajador_empresa">
+          <Key>
+            <PropertyRef Name="run" />
+            <PropertyRef Name="id_trabajador" />
+          </Key>
+          <Property Name="run" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="id_trabajador" Type="numeric" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="oficio_profesion" Type="varchar" MaxLength="150" />
+          <Property Name="rol_unico_tributario" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="run_user" />
+          </Key>
+          <Property Name="run_user" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="passw" Type="varchar" MaxLength="30" />
+          <Property Name="id_contrato" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <Association Name="descuento_Trabajador_empresa_FK">
+          <End Role="Trabajador_empresa" Type="Self.Trabajador_empresa" Multiplicity="0..1" />
+          <End Role="descuento" Type="Self.descuento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador_empresa">
+              <PropertyRef Name="run" />
+              <PropertyRef Name="id_trabajador" />
+            </Principal>
+            <Dependent Role="descuento">
+              <PropertyRef Name="Trabajador_empresa_run" />
+              <PropertyRef Name="Trabajador_empresa_id_trabajador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="herencia_persona_trabajadorempre">
+          <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
+          <End Role="Trabajador_empresa" Type="Self.Trabajador_empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="run" />
+            </Principal>
+            <Dependent Role="Trabajador_empresa">
+              <PropertyRef Name="run" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_acta_detalle">
+          <End Role="Acta_reunion" Type="Self.Acta_reunion" Multiplicity="0..1" />
+          <End Role="detalle_participacion" Type="Self.detalle_participacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Acta_reunion">
+              <PropertyRef Name="id_reunion" />
+            </Principal>
+            <Dependent Role="detalle_participacion">
+              <PropertyRef Name="id_reunion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_afp_dscto">
+          <End Role="AFP" Type="Self.AFP" Multiplicity="0..1" />
+          <End Role="descuento" Type="Self.descuento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AFP">
+              <PropertyRef Name="id_AFP" />
+            </Principal>
+            <Dependent Role="descuento">
+              <PropertyRef Name="id_AFP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_boleta_detalle_boleta">
+          <End Role="boleta" Type="Self.boleta" Multiplicity="0..1" />
+          <End Role="detalle_boleta" Type="Self.detalle_boleta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="boleta">
+              <PropertyRef Name="id_boleta" />
+            </Principal>
+            <Dependent Role="detalle_boleta">
+              <PropertyRef Name="id_boleta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_boleta_stockempresa">
+          <End Role="boleta" Type="Self.boleta" Multiplicity="0..1" />
+          <End Role="Stock_RRFF_EMPRESA" Type="Self.Stock_RRFF_EMPRESA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="boleta">
+              <PropertyRef Name="id_boleta" />
+            </Principal>
+            <Dependent Role="Stock_RRFF_EMPRESA">
+              <PropertyRef Name="id_boleta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_categoria_stockempresa">
+          <End Role="categoria" Type="Self.categoria" Multiplicity="0..1" />
+          <End Role="Stock_RRFF_EMPRESA" Type="Self.Stock_RRFF_EMPRESA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categoria">
+              <PropertyRef Name="id_categoria" />
+            </Principal>
+            <Dependent Role="Stock_RRFF_EMPRESA">
+              <PropertyRef Name="id_categoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_categoria_subcategoria">
+          <End Role="categoria" Type="Self.categoria" Multiplicity="0..1" />
+          <End Role="subcategoria" Type="Self.subcategoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categoria">
+              <PropertyRef Name="id_categoria" />
+            </Principal>
+            <Dependent Role="subcategoria">
+              <PropertyRef Name="id_categoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_ciudad_comuna">
+          <End Role="ciudad" Type="Self.ciudad" Multiplicity="0..1" />
+          <End Role="comuna" Type="Self.comuna" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ciudad">
+              <PropertyRef Name="id_ciudad" />
+            </Principal>
+            <Dependent Role="comuna">
+              <PropertyRef Name="id_ciudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_comuna_persona">
+          <End Role="comuna" Type="Self.comuna" Multiplicity="0..1" />
+          <End Role="Persona" Type="Self.Persona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comuna">
+              <PropertyRef Name="id_comuna" />
+            </Principal>
+            <Dependent Role="Persona">
+              <PropertyRef Name="id_comuna" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_contrato_trabajadorasignado">
+          <End Role="Contrato" Type="Self.Contrato" Multiplicity="0..1" />
+          <End Role="trabajador_asignado" Type="Self.trabajador_asignado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contrato">
+              <PropertyRef Name="id_contrato" />
+            </Principal>
+            <Dependent Role="trabajador_asignado">
+              <PropertyRef Name="id_contrato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_contrato_usuario">
+          <End Role="Contrato" Type="Self.Contrato" Multiplicity="0..1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contrato">
+              <PropertyRef Name="id_contrato" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="id_contrato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_cotizacion_detalle">
+          <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="0..1" />
+          <End Role="detalle_cotizacion" Type="Self.detalle_cotizacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cotizacion">
+              <PropertyRef Name="id_cotizacion" />
+            </Principal>
+            <Dependent Role="detalle_cotizacion">
+              <PropertyRef Name="id_cotizacion1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_empresa_actaR">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+          <End Role="Acta_reunion" Type="Self.Acta_reunion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="rol_unico_tributario" />
+            </Principal>
+            <Dependent Role="Acta_reunion">
+              <PropertyRef Name="rol_unico_tributario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_empresa_stockempresa">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+          <End Role="Stock_RRFF_EMPRESA" Type="Self.Stock_RRFF_EMPRESA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="rol_unico_tributario" />
+            </Principal>
+            <Dependent Role="Stock_RRFF_EMPRESA">
+              <PropertyRef Name="rol_unico_tributario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_empresa_trabajadorempresa">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+          <End Role="Trabajador_empresa" Type="Self.Trabajador_empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="rol_unico_tributario" />
+            </Principal>
+            <Dependent Role="Trabajador_empresa">
+              <PropertyRef Name="rol_unico_tributario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_etapa_actareunion">
+          <End Role="Etapa" Type="Self.Etapa" Multiplicity="0..1" />
+          <End Role="Acta_reunion" Type="Self.Acta_reunion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Etapa">
+              <PropertyRef Name="id_etapa" />
+            </Principal>
+            <Dependent Role="Acta_reunion">
+              <PropertyRef Name="id_etapa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_etapa_factura">
+          <End Role="Factura" Type="Self.Factura" Multiplicity="1" />
+          <End Role="Etapa" Type="Self.Etapa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factura">
+              <PropertyRef Name="id_factura" />
+            </Principal>
+            <Dependent Role="Etapa">
+              <PropertyRef Name="id_factura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relacion_etapa_hito">
+          <End Role="Etapa" Type="Self.Etapa" Multiplicity="0..1" />
+          <End Role="Hito" Type="Self.Hito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Etapa">
+              <PropertyRef Name="id_etapa" />
+            </Principal>
+            <Dependent Role="Hito">
+              <PropertyRef Name="id_etapa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relacion_hito_tarea">
+          <End Role="Hito" Type="Self.Hito" Multiplicity="0..1" />
+          <End Role="Tarea" Type="Self.Tarea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hito">
+              <PropertyRef Name="id_hito" />
+            </Principal>
+            <Dependent Role="Tarea">
+              <PropertyRef Name="id_hito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_pago_factura">
+          <End Role="Pago" Type="Self.Pago" Multiplicity="1" />
+          <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pago">
+              <PropertyRef Name="id_pago" />
+            </Principal>
+            <Dependent Role="Factura">
+              <PropertyRef Name="id_pago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_participantes_detalle">
+          <End Role="participantes" Type="Self.participantes" Multiplicity="0..1" />
+          <End Role="detalle_participacion" Type="Self.detalle_participacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="participantes">
+              <PropertyRef Name="run" />
+            </Principal>
+            <Dependent Role="detalle_participacion">
+              <PropertyRef Name="run" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_producto_detalle_boleta">
+          <End Role="producto" Type="Self.producto" Multiplicity="0..1" />
+          <End Role="detalle_boleta" Type="Self.detalle_boleta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producto">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="detalle_boleta">
+              <PropertyRef Name="id_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_producto_detalle_cotizacion">
+          <End Role="producto" Type="Self.producto" Multiplicity="0..1" />
+          <End Role="detalle_cotizacion" Type="Self.detalle_cotizacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producto">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="detalle_cotizacion">
+              <PropertyRef Name="id_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_proveedor_boleta">
+          <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="0..1" />
+          <End Role="boleta" Type="Self.boleta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedor">
+              <PropertyRef Name="id_proveedor" />
+            </Principal>
+            <Dependent Role="boleta">
+              <PropertyRef Name="id_proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_proveedor_cotizacion">
+          <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="0..1" />
+          <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedor">
+              <PropertyRef Name="id_proveedor" />
+            </Principal>
+            <Dependent Role="Cotizacion">
+              <PropertyRef Name="id_proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_proyecto_actareunion">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="0..1" />
+          <End Role="Acta_reunion" Type="Self.Acta_reunion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="id_proyecto" />
+            </Principal>
+            <Dependent Role="Acta_reunion">
+              <PropertyRef Name="id_proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relacion_proyecto_cotizacion">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="0..1" />
+          <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="id_proyecto" />
+            </Principal>
+            <Dependent Role="Cotizacion">
+              <PropertyRef Name="id_proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relacion_proyecto_etapa">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="0..1" />
+          <End Role="Etapa" Type="Self.Etapa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="id_proyecto" />
+            </Principal>
+            <Dependent Role="Etapa">
+              <PropertyRef Name="id_proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_proyecto_sotckproyecto">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="0..1" />
+          <End Role="stock_RRFF_PROYECTO" Type="Self.stock_RRFF_PROYECTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="id_proyecto" />
+            </Principal>
+            <Dependent Role="stock_RRFF_PROYECTO">
+              <PropertyRef Name="id_proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_proyecto_trabajdorasignado">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="0..1" />
+          <End Role="trabajador_asignado" Type="Self.trabajador_asignado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="id_proyecto" />
+            </Principal>
+            <Dependent Role="trabajador_asignado">
+              <PropertyRef Name="id_proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_region_ciudad">
+          <End Role="region" Type="Self.region" Multiplicity="0..1" />
+          <End Role="ciudad" Type="Self.ciudad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="id_region" />
+            </Principal>
+            <Dependent Role="ciudad">
+              <PropertyRef Name="id_region" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_seguro_dscto">
+          <End Role="seguro_salud" Type="Self.seguro_salud" Multiplicity="0..1" />
+          <End Role="descuento" Type="Self.descuento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seguro_salud">
+              <PropertyRef Name="id_seguro_sald" />
+            </Principal>
+            <Dependent Role="descuento">
+              <PropertyRef Name="id_seguro_sald" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_stockproy_boleta">
+          <End Role="boleta" Type="Self.boleta" Multiplicity="0..1" />
+          <End Role="stock_RRFF_PROYECTO" Type="Self.stock_RRFF_PROYECTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="boleta">
+              <PropertyRef Name="id_boleta" />
+            </Principal>
+            <Dependent Role="stock_RRFF_PROYECTO">
+              <PropertyRef Name="id_boleta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_sueldo_asistencia">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="0..1" />
+          <End Role="Asistencia" Type="Self.Asistencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="id_proyecto" />
+            </Principal>
+            <Dependent Role="Asistencia">
+              <PropertyRef Name="id_proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_tarea_avance">
+          <End Role="Tarea" Type="Self.Tarea" Multiplicity="0..1" />
+          <End Role="registro_avance" Type="Self.registro_avance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tarea">
+              <PropertyRef Name="id_tarea" />
+            </Principal>
+            <Dependent Role="registro_avance">
+              <PropertyRef Name="id_tarea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relacion_tarea_inspecciont">
+          <End Role="Tarea" Type="Self.Tarea" Multiplicity="0..1" />
+          <End Role="Inspeccion_tecnica" Type="Self.Inspeccion_tecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tarea">
+              <PropertyRef Name="id_tarea" />
+            </Principal>
+            <Dependent Role="Inspeccion_tecnica">
+              <PropertyRef Name="id_tarea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_usuario_asistencia">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Asistencia" Type="Self.Asistencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="run_user" />
+            </Principal>
+            <Dependent Role="Asistencia">
+              <PropertyRef Name="run_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_usuario_pago">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Pago" Type="Self.Pago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="run_user" />
+            </Principal>
+            <Dependent Role="Pago">
+              <PropertyRef Name="run_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relation_57">
+          <End Role="trabajador_asignado" Type="Self.trabajador_asignado" Multiplicity="0..1" />
+          <End Role="Sueldo" Type="Self.Sueldo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="trabajador_asignado">
+              <PropertyRef Name="id_asignacion" />
+            </Principal>
+            <Dependent Role="Sueldo">
+              <PropertyRef Name="id_asignacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relation_empresa_proyecto">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="rol_unico_tributario" />
+            </Principal>
+            <Dependent Role="Proyecto">
+              <PropertyRef Name="rol_unico_tributario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="trabajador_asignado_Trabajador_empresa_FK">
+          <End Role="Trabajador_empresa" Type="Self.Trabajador_empresa" Multiplicity="0..1" />
+          <End Role="trabajador_asignado" Type="Self.trabajador_asignado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador_empresa">
+              <PropertyRef Name="run" />
+              <PropertyRef Name="id_trabajador" />
+            </Principal>
+            <Dependent Role="trabajador_asignado">
+              <PropertyRef Name="Trabajador_empresa_run" />
+              <PropertyRef Name="Trabajador_empresa_id_trabajador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="vialisModelStoreContainer">
+          <EntitySet Name="Acta_reunion" EntityType="Self.Acta_reunion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AFP" EntityType="Self.AFP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Asistencia" EntityType="Self.Asistencia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="boleta" EntityType="Self.boleta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="categoria" EntityType="Self.categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ciudad" EntityType="Self.ciudad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="comuna" EntityType="Self.comuna" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contrato" EntityType="Self.Contrato" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cotizacion" EntityType="Self.Cotizacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="descuento" EntityType="Self.descuento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="detalle_boleta" EntityType="Self.detalle_boleta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="detalle_cotizacion" EntityType="Self.detalle_cotizacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="detalle_participacion" EntityType="Self.detalle_participacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Etapa" EntityType="Self.Etapa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Factura" EntityType="Self.Factura" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hito" EntityType="Self.Hito" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inspeccion_tecnica" EntityType="Self.Inspeccion_tecnica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pago" EntityType="Self.Pago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="participantes" EntityType="Self.participantes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Persona" EntityType="Self.Persona" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="producto" EntityType="Self.producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proveedor" EntityType="Self.Proveedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proyecto" EntityType="Self.Proyecto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="region" EntityType="Self.region" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="registro_avance" EntityType="Self.registro_avance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="seguro_salud" EntityType="Self.seguro_salud" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stock_RRFF_EMPRESA" EntityType="Self.Stock_RRFF_EMPRESA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="stock_RRFF_PROYECTO" EntityType="Self.stock_RRFF_PROYECTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="subcategoria" EntityType="Self.subcategoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sueldo" EntityType="Self.Sueldo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tarea" EntityType="Self.Tarea" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="trabajador_asignado" EntityType="Self.trabajador_asignado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trabajador_empresa" EntityType="Self.Trabajador_empresa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="descuento_Trabajador_empresa_FK" Association="Self.descuento_Trabajador_empresa_FK">
+            <End Role="Trabajador_empresa" EntitySet="Trabajador_empresa" />
+            <End Role="descuento" EntitySet="descuento" />
+          </AssociationSet>
+          <AssociationSet Name="herencia_persona_trabajadorempre" Association="Self.herencia_persona_trabajadorempre">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Trabajador_empresa" EntitySet="Trabajador_empresa" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_acta_detalle" Association="Self.relacion_acta_detalle">
+            <End Role="Acta_reunion" EntitySet="Acta_reunion" />
+            <End Role="detalle_participacion" EntitySet="detalle_participacion" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_afp_dscto" Association="Self.relacion_afp_dscto">
+            <End Role="AFP" EntitySet="AFP" />
+            <End Role="descuento" EntitySet="descuento" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_boleta_detalle_boleta" Association="Self.relacion_boleta_detalle_boleta">
+            <End Role="boleta" EntitySet="boleta" />
+            <End Role="detalle_boleta" EntitySet="detalle_boleta" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_boleta_stockempresa" Association="Self.relacion_boleta_stockempresa">
+            <End Role="boleta" EntitySet="boleta" />
+            <End Role="Stock_RRFF_EMPRESA" EntitySet="Stock_RRFF_EMPRESA" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_categoria_stockempresa" Association="Self.relacion_categoria_stockempresa">
+            <End Role="categoria" EntitySet="categoria" />
+            <End Role="Stock_RRFF_EMPRESA" EntitySet="Stock_RRFF_EMPRESA" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_categoria_subcategoria" Association="Self.relacion_categoria_subcategoria">
+            <End Role="categoria" EntitySet="categoria" />
+            <End Role="subcategoria" EntitySet="subcategoria" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_ciudad_comuna" Association="Self.relacion_ciudad_comuna">
+            <End Role="ciudad" EntitySet="ciudad" />
+            <End Role="comuna" EntitySet="comuna" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_comuna_persona" Association="Self.relacion_comuna_persona">
+            <End Role="comuna" EntitySet="comuna" />
+            <End Role="Persona" EntitySet="Persona" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_contrato_trabajadorasignado" Association="Self.relacion_contrato_trabajadorasignado">
+            <End Role="Contrato" EntitySet="Contrato" />
+            <End Role="trabajador_asignado" EntitySet="trabajador_asignado" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_contrato_usuario" Association="Self.relacion_contrato_usuario">
+            <End Role="Contrato" EntitySet="Contrato" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_cotizacion_detalle" Association="Self.relacion_cotizacion_detalle">
+            <End Role="Cotizacion" EntitySet="Cotizacion" />
+            <End Role="detalle_cotizacion" EntitySet="detalle_cotizacion" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_empresa_actaR" Association="Self.relacion_empresa_actaR">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Acta_reunion" EntitySet="Acta_reunion" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_empresa_stockempresa" Association="Self.relacion_empresa_stockempresa">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Stock_RRFF_EMPRESA" EntitySet="Stock_RRFF_EMPRESA" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_empresa_trabajadorempresa" Association="Self.relacion_empresa_trabajadorempresa">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Trabajador_empresa" EntitySet="Trabajador_empresa" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_etapa_actareunion" Association="Self.relacion_etapa_actareunion">
+            <End Role="Etapa" EntitySet="Etapa" />
+            <End Role="Acta_reunion" EntitySet="Acta_reunion" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_etapa_factura" Association="Self.relacion_etapa_factura">
+            <End Role="Factura" EntitySet="Factura" />
+            <End Role="Etapa" EntitySet="Etapa" />
+          </AssociationSet>
+          <AssociationSet Name="Relacion_etapa_hito" Association="Self.Relacion_etapa_hito">
+            <End Role="Etapa" EntitySet="Etapa" />
+            <End Role="Hito" EntitySet="Hito" />
+          </AssociationSet>
+          <AssociationSet Name="Relacion_hito_tarea" Association="Self.Relacion_hito_tarea">
+            <End Role="Hito" EntitySet="Hito" />
+            <End Role="Tarea" EntitySet="Tarea" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_pago_factura" Association="Self.relacion_pago_factura">
+            <End Role="Pago" EntitySet="Pago" />
+            <End Role="Factura" EntitySet="Factura" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_participantes_detalle" Association="Self.relacion_participantes_detalle">
+            <End Role="participantes" EntitySet="participantes" />
+            <End Role="detalle_participacion" EntitySet="detalle_participacion" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_producto_detalle_boleta" Association="Self.relacion_producto_detalle_boleta">
+            <End Role="producto" EntitySet="producto" />
+            <End Role="detalle_boleta" EntitySet="detalle_boleta" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_producto_detalle_cotizacion" Association="Self.relacion_producto_detalle_cotizacion">
+            <End Role="producto" EntitySet="producto" />
+            <End Role="detalle_cotizacion" EntitySet="detalle_cotizacion" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_proveedor_boleta" Association="Self.relacion_proveedor_boleta">
+            <End Role="Proveedor" EntitySet="Proveedor" />
+            <End Role="boleta" EntitySet="boleta" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_proveedor_cotizacion" Association="Self.relacion_proveedor_cotizacion">
+            <End Role="Proveedor" EntitySet="Proveedor" />
+            <End Role="Cotizacion" EntitySet="Cotizacion" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_proyecto_actareunion" Association="Self.relacion_proyecto_actareunion">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="Acta_reunion" EntitySet="Acta_reunion" />
+          </AssociationSet>
+          <AssociationSet Name="Relacion_proyecto_cotizacion" Association="Self.Relacion_proyecto_cotizacion">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="Cotizacion" EntitySet="Cotizacion" />
+          </AssociationSet>
+          <AssociationSet Name="Relacion_proyecto_etapa" Association="Self.Relacion_proyecto_etapa">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="Etapa" EntitySet="Etapa" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_proyecto_sotckproyecto" Association="Self.relacion_proyecto_sotckproyecto">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="stock_RRFF_PROYECTO" EntitySet="stock_RRFF_PROYECTO" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_proyecto_trabajdorasignado" Association="Self.relacion_proyecto_trabajdorasignado">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="trabajador_asignado" EntitySet="trabajador_asignado" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_region_ciudad" Association="Self.relacion_region_ciudad">
+            <End Role="region" EntitySet="region" />
+            <End Role="ciudad" EntitySet="ciudad" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_seguro_dscto" Association="Self.relacion_seguro_dscto">
+            <End Role="seguro_salud" EntitySet="seguro_salud" />
+            <End Role="descuento" EntitySet="descuento" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_stockproy_boleta" Association="Self.relacion_stockproy_boleta">
+            <End Role="boleta" EntitySet="boleta" />
+            <End Role="stock_RRFF_PROYECTO" EntitySet="stock_RRFF_PROYECTO" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_sueldo_asistencia" Association="Self.relacion_sueldo_asistencia">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="Asistencia" EntitySet="Asistencia" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_tarea_avance" Association="Self.relacion_tarea_avance">
+            <End Role="Tarea" EntitySet="Tarea" />
+            <End Role="registro_avance" EntitySet="registro_avance" />
+          </AssociationSet>
+          <AssociationSet Name="Relacion_tarea_inspecciont" Association="Self.Relacion_tarea_inspecciont">
+            <End Role="Tarea" EntitySet="Tarea" />
+            <End Role="Inspeccion_tecnica" EntitySet="Inspeccion_tecnica" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_usuario_asistencia" Association="Self.relacion_usuario_asistencia">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Asistencia" EntitySet="Asistencia" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_usuario_pago" Association="Self.relacion_usuario_pago">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Pago" EntitySet="Pago" />
+          </AssociationSet>
+          <AssociationSet Name="Relation_57" Association="Self.Relation_57">
+            <End Role="trabajador_asignado" EntitySet="trabajador_asignado" />
+            <End Role="Sueldo" EntitySet="Sueldo" />
+          </AssociationSet>
+          <AssociationSet Name="Relation_empresa_proyecto" Association="Self.Relation_empresa_proyecto">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Proyecto" EntitySet="Proyecto" />
+          </AssociationSet>
+          <AssociationSet Name="trabajador_asignado_Trabajador_empresa_FK" Association="Self.trabajador_asignado_Trabajador_empresa_FK">
+            <End Role="Trabajador_empresa" EntitySet="Trabajador_empresa" />
+            <End Role="trabajador_asignado" EntitySet="trabajador_asignado" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="vialisModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Acta_reunion">
+          <Key>
+            <PropertyRef Name="id_reunion" />
+          </Key>
+          <Property Name="id_reunion" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_proyecto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="rol_unico_tributario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="id_etapa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="detalle_minuta" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_reunion" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="detalle_participacion" Relationship="Self.relacion_acta_detalle" FromRole="Acta_reunion" ToRole="detalle_participacion" />
+          <NavigationProperty Name="Empresa" Relationship="Self.relacion_empresa_actaR" FromRole="Acta_reunion" ToRole="Empresa" />
+          <NavigationProperty Name="Etapa" Relationship="Self.relacion_etapa_actareunion" FromRole="Acta_reunion" ToRole="Etapa" />
+          <NavigationProperty Name="Proyecto" Relationship="Self.relacion_proyecto_actareunion" FromRole="Acta_reunion" ToRole="Proyecto" />
+        </EntityType>
+        <EntityType Name="AFP">
+          <Key>
+            <PropertyRef Name="id_AFP" />
+          </Key>
+          <Property Name="id_AFP" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre_afp" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="descuentoes" Relationship="Self.relacion_afp_dscto" FromRole="AFP" ToRole="descuento" />
+        </EntityType>
+        <EntityType Name="Asistencia">
+          <Key>
+            <PropertyRef Name="id_asistencia" />
+          </Key>
+          <Property Name="id_asistencia" Type="Decimal" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="run_user" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="id_proyecto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_asistencia" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Proyecto" Relationship="Self.relacion_sueldo_asistencia" FromRole="Asistencia" ToRole="Proyecto" />
+          <NavigationProperty Name="Usuario" Relationship="Self.relacion_usuario_asistencia" FromRole="Asistencia" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="boleta">
+          <Key>
+            <PropertyRef Name="id_boleta" />
+          </Key>
+          <Property Name="id_boleta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_proveedor" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="fecha" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="detalle_boleta" Relationship="Self.relacion_boleta_detalle_boleta" FromRole="boleta" ToRole="detalle_boleta" />
+          <NavigationProperty Name="Stock_RRFF_EMPRESA" Relationship="Self.relacion_boleta_stockempresa" FromRole="boleta" ToRole="Stock_RRFF_EMPRESA" />
+          <NavigationProperty Name="Proveedor" Relationship="Self.relacion_proveedor_boleta" FromRole="boleta" ToRole="Proveedor" />
+          <NavigationProperty Name="stock_RRFF_PROYECTO" Relationship="Self.relacion_stockproy_boleta" FromRole="boleta" ToRole="stock_RRFF_PROYECTO" />
+        </EntityType>
+        <EntityType Name="categoria">
+          <Key>
+            <PropertyRef Name="id_categoria" />
+          </Key>
+          <Property Name="id_categoria" Type="Decimal" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="nombre_categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Stock_RRFF_EMPRESA" Relationship="Self.relacion_categoria_stockempresa" FromRole="categoria" ToRole="Stock_RRFF_EMPRESA" />
+          <NavigationProperty Name="subcategorias" Relationship="Self.relacion_categoria_subcategoria" FromRole="categoria" ToRole="subcategoria" />
+        </EntityType>
+        <EntityType Name="ciudad">
+          <Key>
+            <PropertyRef Name="id_ciudad" />
+          </Key>
+          <Property Name="id_ciudad" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="ciudad1" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="id_region" Type="Decimal" Precision="3" Scale="0" />
+          <NavigationProperty Name="comunas" Relationship="Self.relacion_ciudad_comuna" FromRole="ciudad" ToRole="comuna" />
+          <NavigationProperty Name="region" Relationship="Self.relacion_region_ciudad" FromRole="ciudad" ToRole="region" />
+        </EntityType>
+        <EntityType Name="comuna">
+          <Key>
+            <PropertyRef Name="id_comuna" />
+          </Key>
+          <Property Name="id_comuna" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="nombre_comuna" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_ciudad" Type="Decimal" Precision="3" Scale="0" />
+          <NavigationProperty Name="ciudad" Relationship="Self.relacion_ciudad_comuna" FromRole="comuna" ToRole="ciudad" />
+          <NavigationProperty Name="Personas" Relationship="Self.relacion_comuna_persona" FromRole="comuna" ToRole="Persona" />
+        </EntityType>
+        <EntityType Name="Contrato">
+          <Key>
+            <PropertyRef Name="id_contrato" />
+          </Key>
+          <Property Name="id_contrato" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre_contrato" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_inicio" Type="DateTime" Precision="0" />
+          <Property Name="fecha_termino" Type="DateTime" Precision="0" />
+          <Property Name="sueldo_base" Type="Decimal" Precision="28" Scale="0" />
+          <Property Name="dias_mesuales_req" Type="Decimal" Precision="28" Scale="0" />
+          <Property Name="valor_dia" Type="Decimal" Precision="28" Scale="0" />
+          <Property Name="descripcion" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="trabajador_asignado" Relationship="Self.relacion_contrato_trabajadorasignado" FromRole="Contrato" ToRole="trabajador_asignado" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.relacion_contrato_usuario" FromRole="Contrato" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Cotizacion">
+          <Key>
+            <PropertyRef Name="id_cotizacion" />
+          </Key>
+          <Property Name="id_cotizacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_proyecto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="id_proveedor" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="detalle_cotizacion" Relationship="Self.relacion_cotizacion_detalle" FromRole="Cotizacion" ToRole="detalle_cotizacion" />
+          <NavigationProperty Name="Proveedor" Relationship="Self.relacion_proveedor_cotizacion" FromRole="Cotizacion" ToRole="Proveedor" />
+          <NavigationProperty Name="Proyecto" Relationship="Self.Relacion_proyecto_cotizacion" FromRole="Cotizacion" ToRole="Proyecto" />
+        </EntityType>
+        <EntityType Name="descuento">
+          <Key>
+            <PropertyRef Name="id_descto" />
+          </Key>
+          <Property Name="id_descto" Type="Decimal" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="porc_descto" Type="Decimal" Precision="28" Scale="0" />
+          <Property Name="id_AFP" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="id_seguro_sald" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Trabajador_empresa_run" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Trabajador_empresa_id_trabajador" Type="Decimal" Precision="5" Scale="0" />
+          <NavigationProperty Name="AFP" Relationship="Self.relacion_afp_dscto" FromRole="descuento" ToRole="AFP" />
+          <NavigationProperty Name="Trabajador_empresa" Relationship="Self.descuento_Trabajador_empresa_FK" FromRole="descuento" ToRole="Trabajador_empresa" />
+          <NavigationProperty Name="seguro_salud" Relationship="Self.relacion_seguro_dscto" FromRole="descuento" ToRole="seguro_salud" />
+        </EntityType>
+        <EntityType Name="detalle_boleta">
+          <Key>
+            <PropertyRef Name="id_detalle_boleta" />
+          </Key>
+          <Property Name="id_detalle_boleta" Type="Decimal" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="cantidad" Type="Decimal" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="precio" Type="Decimal" Precision="28" Scale="0" />
+          <Property Name="id_boleta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_producto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="boleta" Relationship="Self.relacion_boleta_detalle_boleta" FromRole="detalle_boleta" ToRole="boleta" />
+          <NavigationProperty Name="producto" Relationship="Self.relacion_producto_detalle_boleta" FromRole="detalle_boleta" ToRole="producto" />
+        </EntityType>
+        <EntityType Name="detalle_cotizacion">
+          <Key>
+            <PropertyRef Name="id_detalle_cotizacion" />
+          </Key>
+          <Property Name="id_detalle_cotizacion" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cantidad" Type="Decimal" Precision="28" Scale="0" />
+          <Property Name="precio" Type="Decimal" Precision="28" Scale="0" />
+          <Property Name="id_cotizacion1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="id_producto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cotizacion" Relationship="Self.relacion_cotizacion_detalle" FromRole="detalle_cotizacion" ToRole="Cotizacion" />
+          <NavigationProperty Name="producto" Relationship="Self.relacion_producto_detalle_cotizacion" FromRole="detalle_cotizacion" ToRole="producto" />
+        </EntityType>
+        <EntityType Name="detalle_participacion">
+          <Key>
+            <PropertyRef Name="id_detalle_participacion" />
+          </Key>
+          <Property Name="id_detalle_participacion" Type="Decimal" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="id_reunion" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="run" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Acta_reunion" Relationship="Self.relacion_acta_detalle" FromRole="detalle_participacion" ToRole="Acta_reunion" />
+          <NavigationProperty Name="participante" Relationship="Self.relacion_participantes_detalle" FromRole="detalle_participacion" ToRole="participantes" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="rol_unico_tributario" />
+          </Key>
+          <Property Name="rol_unico_tributario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre_empresa" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Acta_reunion" Relationship="Self.relacion_empresa_actaR" FromRole="Empresa" ToRole="Acta_reunion" />
+          <NavigationProperty Name="Stock_RRFF_EMPRESA" Relationship="Self.relacion_empresa_stockempresa" FromRole="Empresa" ToRole="Stock_RRFF_EMPRESA" />
+          <NavigationProperty Name="Trabajador_empresa" Relationship="Self.relacion_empresa_trabajadorempresa" FromRole="Empresa" ToRole="Trabajador_empresa" />
+          <NavigationProperty Name="Proyectoes" Relationship="Self.Relation_empresa_proyecto" FromRole="Empresa" ToRole="Proyecto" />
+        </EntityType>
+        <EntityType Name="Etapa">
+          <Key>
+            <PropertyRef Name="id_etapa" />
+          </Key>
+          <Property Name="id_etapa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_proyecto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_etapa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion_etapa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_inicio" Type="DateTime" Precision="0" />
+          <Property Name="fecha_termino" Type="DateTime" Precision="0" />
+          <Property Name="nivel_avance" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="id_factura" Type="Decimal" Precision="6" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Acta_reunion" Relationship="Self.relacion_etapa_actareunion" FromRole="Etapa" ToRole="Acta_reunion" />
+          <NavigationProperty Name="Factura" Relationship="Self.relacion_etapa_factura" FromRole="Etapa" ToRole="Factura" />
+          <NavigationProperty Name="Hitoes" Relationship="Self.Relacion_etapa_hito" FromRole="Etapa" ToRole="Hito" />
+          <NavigationProperty Name="Proyecto" Relationship="Self.Relacion_proyecto_etapa" FromRole="Etapa" ToRole="Proyecto" />
+        </EntityType>
+        <EntityType Name="Factura">
+          <Key>
+            <PropertyRef Name="id_factura" />
+          </Key>
+          <Property Name="id_factura" Type="Decimal" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="detalle_factura" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="costo" Type="Decimal" Precision="15" Scale="0" />
+          <Property Name="fecha_emision" Type="DateTime" Precision="0" />
+          <Property Name="id_pago" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Etapas" Relationship="Self.relacion_etapa_factura" FromRole="Factura" ToRole="Etapa" />
+          <NavigationProperty Name="Pago" Relationship="Self.relacion_pago_factura" FromRole="Factura" ToRole="Pago" />
+        </EntityType>
+        <EntityType Name="Hito">
+          <Key>
+            <PropertyRef Name="id_hito" />
+          </Key>
+          <Property Name="id_hito" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_etapa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_hito" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion_hito" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_inicio" Type="DateTime" Precision="0" />
+          <Property Name="fecha_termino" Type="DateTime" Precision="0" />
+          <Property Name="nivel_avance" Type="Decimal" Precision="3" Scale="0" />
+          <NavigationProperty Name="Etapa" Relationship="Self.Relacion_etapa_hito" FromRole="Hito" ToRole="Etapa" />
+          <NavigationProperty Name="Tareas" Relationship="Self.Relacion_hito_tarea" FromRole="Hito" ToRole="Tarea" />
+        </EntityType>
+        <EntityType Name="Inspeccion_tecnica">
+          <Key>
+            <PropertyRef Name="id_inspeccion_tec" />
+          </Key>
+          <Property Name="id_inspeccion_tec" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_tarea" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="detalle_inspeccion_t" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="nivel_avance" Type="Decimal" Precision="3" Scale="0" />
+          <NavigationProperty Name="Tarea" Relationship="Self.Relacion_tarea_inspecciont" FromRole="Inspeccion_tecnica" ToRole="Tarea" />
+        </EntityType>
+        <EntityType Name="Pago">
+          <Key>
+            <PropertyRef Name="id_pago" />
+          </Key>
+          <Property Name="id_pago" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado_pago" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_pago" Type="DateTime" Precision="0" />
+          <Property Name="costo" Type="Decimal" Precision="15" Scale="0" />
+          <Property Name="run_user" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Facturas" Relationship="Self.relacion_pago_factura" FromRole="Pago" ToRole="Factura" />
+          <NavigationProperty Name="Usuario" Relationship="Self.relacion_usuario_pago" FromRole="Pago" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="participante">
+          <Key>
+            <PropertyRef Name="run" />
+          </Key>
+          <Property Name="run" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ap_paterno" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ap_materno" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="responsabilidad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="detalle_participacion" Relationship="Self.relacion_participantes_detalle" FromRole="participantes" ToRole="detalle_participacion" />
+        </EntityType>
+        <EntityType Name="Persona">
+          <Key>
+            <PropertyRef Name="run" />
+          </Key>
+          <Property Name="run" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="apellido_paterno" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="apellido_materno" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="fecha_nacimiento" Type="DateTime" Precision="0" />
+          <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="id_comuna" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="estado_civil" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="comuna" Relationship="Self.relacion_comuna_persona" FromRole="Persona" ToRole="comuna" />
+          <NavigationProperty Name="Trabajador_empresa" Relationship="Self.herencia_persona_trabajadorempre" FromRole="Persona" ToRole="Trabajador_empresa" />
+        </EntityType>
+        <EntityType Name="producto">
+          <Key>
+            <PropertyRef Name="id_producto" />
+          </Key>
+          <Property Name="id_producto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre_producto" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="marca" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="detalle_boleta" Relationship="Self.relacion_producto_detalle_boleta" FromRole="producto" ToRole="detalle_boleta" />
+          <NavigationProperty Name="detalle_cotizacion" Relationship="Self.relacion_producto_detalle_cotizacion" FromRole="producto" ToRole="detalle_cotizacion" />
+        </EntityType>
+        <EntityType Name="Proveedor">
+          <Key>
+            <PropertyRef Name="id_proveedor" />
+          </Key>
+          <Property Name="id_proveedor" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre_proveedor" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="boletas" Relationship="Self.relacion_proveedor_boleta" FromRole="Proveedor" ToRole="boleta" />
+          <NavigationProperty Name="Cotizacions" Relationship="Self.relacion_proveedor_cotizacion" FromRole="Proveedor" ToRole="Cotizacion" />
+        </EntityType>
+        <EntityType Name="Proyecto">
+          <Key>
+            <PropertyRef Name="id_proyecto" />
+          </Key>
+          <Property Name="id_proyecto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rol_unico_tributario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_proyecto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Acta_reunion" Relationship="Self.relacion_proyecto_actareunion" FromRole="Proyecto" ToRole="Acta_reunion" />
+          <NavigationProperty Name="Asistencias" Relationship="Self.relacion_sueldo_asistencia" FromRole="Proyecto" ToRole="Asistencia" />
+          <NavigationProperty Name="Cotizacions" Relationship="Self.Relacion_proyecto_cotizacion" FromRole="Proyecto" ToRole="Cotizacion" />
+          <NavigationProperty Name="Empresa" Relationship="Self.Relation_empresa_proyecto" FromRole="Proyecto" ToRole="Empresa" />
+          <NavigationProperty Name="Etapas" Relationship="Self.Relacion_proyecto_etapa" FromRole="Proyecto" ToRole="Etapa" />
+          <NavigationProperty Name="stock_RRFF_PROYECTO" Relationship="Self.relacion_proyecto_sotckproyecto" FromRole="Proyecto" ToRole="stock_RRFF_PROYECTO" />
+          <NavigationProperty Name="trabajador_asignado" Relationship="Self.relacion_proyecto_trabajdorasignado" FromRole="Proyecto" ToRole="trabajador_asignado" />
+        </EntityType>
+        <EntityType Name="region">
+          <Key>
+            <PropertyRef Name="id_region" />
+          </Key>
+          <Property Name="id_region" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="nombre_region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ciudads" Relationship="Self.relacion_region_ciudad" FromRole="region" ToRole="ciudad" />
+        </EntityType>
+        <EntityType Name="registro_avance">
+          <Key>
+            <PropertyRef Name="id_reg_avance" />
+          </Key>
+          <Property Name="id_reg_avance" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="id_tarea" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nivel_avance" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="detalle" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Tarea" Relationship="Self.relacion_tarea_avance" FromRole="registro_avance" ToRole="Tarea" />
+        </EntityType>
+        <EntityType Name="seguro_salud">
+          <Key>
+            <PropertyRef Name="id_seguro_sald" />
+          </Key>
+          <Property Name="id_seguro_sald" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre_seg_sald" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="descuentoes" Relationship="Self.relacion_seguro_dscto" FromRole="seguro_salud" ToRole="descuento" />
+        </EntityType>
+        <EntityType Name="Stock_RRFF_EMPRESA">
+          <Key>
+            <PropertyRef Name="id_material" />
+          </Key>
+          <Property Name="id_material" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rol_unico_tributario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="marca" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre_producto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cantidad" Type="Decimal" Precision="15" Scale="0" />
+          <Property Name="id_boleta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_categoria" Type="Decimal" Precision="6" Scale="0" />
+          <NavigationProperty Name="boleta" Relationship="Self.relacion_boleta_stockempresa" FromRole="Stock_RRFF_EMPRESA" ToRole="boleta" />
+          <NavigationProperty Name="categoria" Relationship="Self.relacion_categoria_stockempresa" FromRole="Stock_RRFF_EMPRESA" ToRole="categoria" />
+          <NavigationProperty Name="Empresa" Relationship="Self.relacion_empresa_stockempresa" FromRole="Stock_RRFF_EMPRESA" ToRole="Empresa" />
+        </EntityType>
+        <EntityType Name="stock_RRFF_PROYECTO">
+          <Key>
+            <PropertyRef Name="id_material" />
+          </Key>
+          <Property Name="id_material" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_proyecto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="marca" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_producto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="cantidad" Type="Decimal" Precision="15" Scale="0" />
+          <Property Name="id_boleta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="boleta" Relationship="Self.relacion_stockproy_boleta" FromRole="stock_RRFF_PROYECTO" ToRole="boleta" />
+          <NavigationProperty Name="Proyecto" Relationship="Self.relacion_proyecto_sotckproyecto" FromRole="stock_RRFF_PROYECTO" ToRole="Proyecto" />
+        </EntityType>
+        <EntityType Name="subcategoria">
+          <Key>
+            <PropertyRef Name="id_subcategoria" />
+          </Key>
+          <Property Name="id_subcategoria" Type="Decimal" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="nombre_subcategoria" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="id_categoria" Type="Decimal" Precision="6" Scale="0" />
+          <NavigationProperty Name="categoria" Relationship="Self.relacion_categoria_subcategoria" FromRole="subcategoria" ToRole="categoria" />
+        </EntityType>
+        <EntityType Name="Sueldo">
+          <Key>
+            <PropertyRef Name="id_sueldo" />
+          </Key>
+          <Property Name="id_sueldo" Type="Decimal" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="id_asignacion" Type="Decimal" Precision="28" Scale="0" />
+          <Property Name="dias_trabajados" Type="Decimal" Precision="28" Scale="0" />
+          <Property Name="valor_dia" Type="Decimal" Precision="28" Scale="0" />
+          <Property Name="total" Type="Decimal" Precision="28" Scale="0" />
+          <NavigationProperty Name="trabajador_asignado" Relationship="Self.Relation_57" FromRole="Sueldo" ToRole="trabajador_asignado" />
+        </EntityType>
+        <EntityType Name="Tarea">
+          <Key>
+            <PropertyRef Name="id_tarea" />
+          </Key>
+          <Property Name="id_tarea" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_hito" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_tarea" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion_tarea" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_inicio" Type="DateTime" Precision="0" />
+          <Property Name="fecha_termino" Type="DateTime" Precision="0" />
+          <Property Name="nivel_avance" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="costo" Type="Decimal" Precision="15" Scale="0" />
+          <NavigationProperty Name="Hito" Relationship="Self.Relacion_hito_tarea" FromRole="Tarea" ToRole="Hito" />
+          <NavigationProperty Name="Inspeccion_tecnica" Relationship="Self.Relacion_tarea_inspecciont" FromRole="Tarea" ToRole="Inspeccion_tecnica" />
+          <NavigationProperty Name="registro_avance" Relationship="Self.relacion_tarea_avance" FromRole="Tarea" ToRole="registro_avance" />
+        </EntityType>
+        <EntityType Name="trabajador_asignado">
+          <Key>
+            <PropertyRef Name="id_asignacion" />
+          </Key>
+          <Property Name="id_asignacion" Type="Decimal" Precision="28" Scale="0" Nullable="false" />
+          <Property Name="responsabilidad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="id_contrato" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="id_proyecto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Trabajador_empresa_run" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Trabajador_empresa_id_trabajador" Type="Decimal" Precision="5" Scale="0" />
+          <NavigationProperty Name="Contrato" Relationship="Self.relacion_contrato_trabajadorasignado" FromRole="trabajador_asignado" ToRole="Contrato" />
+          <NavigationProperty Name="Proyecto" Relationship="Self.relacion_proyecto_trabajdorasignado" FromRole="trabajador_asignado" ToRole="Proyecto" />
+          <NavigationProperty Name="Sueldoes" Relationship="Self.Relation_57" FromRole="trabajador_asignado" ToRole="Sueldo" />
+          <NavigationProperty Name="Trabajador_empresa" Relationship="Self.trabajador_asignado_Trabajador_empresa_FK" FromRole="trabajador_asignado" ToRole="Trabajador_empresa" />
+        </EntityType>
+        <EntityType Name="Trabajador_empresa">
+          <Key>
+            <PropertyRef Name="run" />
+            <PropertyRef Name="id_trabajador" />
+          </Key>
+          <Property Name="run" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_trabajador" Type="Decimal" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="oficio_profesion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="rol_unico_tributario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="descuentoes" Relationship="Self.descuento_Trabajador_empresa_FK" FromRole="Trabajador_empresa" ToRole="descuento" />
+          <NavigationProperty Name="Empresa" Relationship="Self.relacion_empresa_trabajadorempresa" FromRole="Trabajador_empresa" ToRole="Empresa" />
+          <NavigationProperty Name="Persona" Relationship="Self.herencia_persona_trabajadorempre" FromRole="Trabajador_empresa" ToRole="Persona" />
+          <NavigationProperty Name="trabajador_asignado" Relationship="Self.trabajador_asignado_Trabajador_empresa_FK" FromRole="Trabajador_empresa" ToRole="trabajador_asignado" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="run_user" />
+          </Key>
+          <Property Name="run_user" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="passw" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="id_contrato" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Asistencias" Relationship="Self.relacion_usuario_asistencia" FromRole="Usuario" ToRole="Asistencia" />
+          <NavigationProperty Name="Contrato" Relationship="Self.relacion_contrato_usuario" FromRole="Usuario" ToRole="Contrato" />
+          <NavigationProperty Name="Pagoes" Relationship="Self.relacion_usuario_pago" FromRole="Usuario" ToRole="Pago" />
+        </EntityType>
+        <Association Name="relacion_acta_detalle">
+          <End Role="Acta_reunion" Type="Self.Acta_reunion" Multiplicity="0..1" />
+          <End Role="detalle_participacion" Type="Self.detalle_participacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Acta_reunion">
+              <PropertyRef Name="id_reunion" />
+            </Principal>
+            <Dependent Role="detalle_participacion">
+              <PropertyRef Name="id_reunion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_empresa_actaR">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+          <End Role="Acta_reunion" Type="Self.Acta_reunion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="rol_unico_tributario" />
+            </Principal>
+            <Dependent Role="Acta_reunion">
+              <PropertyRef Name="rol_unico_tributario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_etapa_actareunion">
+          <End Role="Etapa" Type="Self.Etapa" Multiplicity="0..1" />
+          <End Role="Acta_reunion" Type="Self.Acta_reunion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Etapa">
+              <PropertyRef Name="id_etapa" />
+            </Principal>
+            <Dependent Role="Acta_reunion">
+              <PropertyRef Name="id_etapa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_proyecto_actareunion">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="0..1" />
+          <End Role="Acta_reunion" Type="Self.Acta_reunion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="id_proyecto" />
+            </Principal>
+            <Dependent Role="Acta_reunion">
+              <PropertyRef Name="id_proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_afp_dscto">
+          <End Role="AFP" Type="Self.AFP" Multiplicity="0..1" />
+          <End Role="descuento" Type="Self.descuento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AFP">
+              <PropertyRef Name="id_AFP" />
+            </Principal>
+            <Dependent Role="descuento">
+              <PropertyRef Name="id_AFP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_sueldo_asistencia">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="0..1" />
+          <End Role="Asistencia" Type="Self.Asistencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="id_proyecto" />
+            </Principal>
+            <Dependent Role="Asistencia">
+              <PropertyRef Name="id_proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_usuario_asistencia">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Asistencia" Type="Self.Asistencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="run_user" />
+            </Principal>
+            <Dependent Role="Asistencia">
+              <PropertyRef Name="run_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_boleta_detalle_boleta">
+          <End Role="boleta" Type="Self.boleta" Multiplicity="0..1" />
+          <End Role="detalle_boleta" Type="Self.detalle_boleta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="boleta">
+              <PropertyRef Name="id_boleta" />
+            </Principal>
+            <Dependent Role="detalle_boleta">
+              <PropertyRef Name="id_boleta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_boleta_stockempresa">
+          <End Role="boleta" Type="Self.boleta" Multiplicity="0..1" />
+          <End Role="Stock_RRFF_EMPRESA" Type="Self.Stock_RRFF_EMPRESA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="boleta">
+              <PropertyRef Name="id_boleta" />
+            </Principal>
+            <Dependent Role="Stock_RRFF_EMPRESA">
+              <PropertyRef Name="id_boleta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_proveedor_boleta">
+          <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="0..1" />
+          <End Role="boleta" Type="Self.boleta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedor">
+              <PropertyRef Name="id_proveedor" />
+            </Principal>
+            <Dependent Role="boleta">
+              <PropertyRef Name="id_proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_stockproy_boleta">
+          <End Role="boleta" Type="Self.boleta" Multiplicity="0..1" />
+          <End Role="stock_RRFF_PROYECTO" Type="Self.stock_RRFF_PROYECTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="boleta">
+              <PropertyRef Name="id_boleta" />
+            </Principal>
+            <Dependent Role="stock_RRFF_PROYECTO">
+              <PropertyRef Name="id_boleta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_categoria_stockempresa">
+          <End Role="categoria" Type="Self.categoria" Multiplicity="0..1" />
+          <End Role="Stock_RRFF_EMPRESA" Type="Self.Stock_RRFF_EMPRESA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categoria">
+              <PropertyRef Name="id_categoria" />
+            </Principal>
+            <Dependent Role="Stock_RRFF_EMPRESA">
+              <PropertyRef Name="id_categoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_categoria_subcategoria">
+          <End Role="categoria" Type="Self.categoria" Multiplicity="0..1" />
+          <End Role="subcategoria" Type="Self.subcategoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categoria">
+              <PropertyRef Name="id_categoria" />
+            </Principal>
+            <Dependent Role="subcategoria">
+              <PropertyRef Name="id_categoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_ciudad_comuna">
+          <End Role="ciudad" Type="Self.ciudad" Multiplicity="0..1" />
+          <End Role="comuna" Type="Self.comuna" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ciudad">
+              <PropertyRef Name="id_ciudad" />
+            </Principal>
+            <Dependent Role="comuna">
+              <PropertyRef Name="id_ciudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_region_ciudad">
+          <End Role="region" Type="Self.region" Multiplicity="0..1" />
+          <End Role="ciudad" Type="Self.ciudad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="region">
+              <PropertyRef Name="id_region" />
+            </Principal>
+            <Dependent Role="ciudad">
+              <PropertyRef Name="id_region" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_comuna_persona">
+          <End Role="comuna" Type="Self.comuna" Multiplicity="0..1" />
+          <End Role="Persona" Type="Self.Persona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comuna">
+              <PropertyRef Name="id_comuna" />
+            </Principal>
+            <Dependent Role="Persona">
+              <PropertyRef Name="id_comuna" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_contrato_trabajadorasignado">
+          <End Role="Contrato" Type="Self.Contrato" Multiplicity="0..1" />
+          <End Role="trabajador_asignado" Type="Self.trabajador_asignado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contrato">
+              <PropertyRef Name="id_contrato" />
+            </Principal>
+            <Dependent Role="trabajador_asignado">
+              <PropertyRef Name="id_contrato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_contrato_usuario">
+          <End Role="Contrato" Type="Self.Contrato" Multiplicity="0..1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contrato">
+              <PropertyRef Name="id_contrato" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="id_contrato" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_cotizacion_detalle">
+          <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="0..1" />
+          <End Role="detalle_cotizacion" Type="Self.detalle_cotizacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cotizacion">
+              <PropertyRef Name="id_cotizacion" />
+            </Principal>
+            <Dependent Role="detalle_cotizacion">
+              <PropertyRef Name="id_cotizacion1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_proveedor_cotizacion">
+          <End Role="Proveedor" Type="Self.Proveedor" Multiplicity="0..1" />
+          <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedor">
+              <PropertyRef Name="id_proveedor" />
+            </Principal>
+            <Dependent Role="Cotizacion">
+              <PropertyRef Name="id_proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relacion_proyecto_cotizacion">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="0..1" />
+          <End Role="Cotizacion" Type="Self.Cotizacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="id_proyecto" />
+            </Principal>
+            <Dependent Role="Cotizacion">
+              <PropertyRef Name="id_proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="descuento_Trabajador_empresa_FK">
+          <End Role="Trabajador_empresa" Type="Self.Trabajador_empresa" Multiplicity="0..1" />
+          <End Role="descuento" Type="Self.descuento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador_empresa">
+              <PropertyRef Name="run" />
+              <PropertyRef Name="id_trabajador" />
+            </Principal>
+            <Dependent Role="descuento">
+              <PropertyRef Name="Trabajador_empresa_run" />
+              <PropertyRef Name="Trabajador_empresa_id_trabajador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_seguro_dscto">
+          <End Role="seguro_salud" Type="Self.seguro_salud" Multiplicity="0..1" />
+          <End Role="descuento" Type="Self.descuento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="seguro_salud">
+              <PropertyRef Name="id_seguro_sald" />
+            </Principal>
+            <Dependent Role="descuento">
+              <PropertyRef Name="id_seguro_sald" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_producto_detalle_boleta">
+          <End Role="producto" Type="Self.producto" Multiplicity="0..1" />
+          <End Role="detalle_boleta" Type="Self.detalle_boleta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producto">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="detalle_boleta">
+              <PropertyRef Name="id_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_producto_detalle_cotizacion">
+          <End Role="producto" Type="Self.producto" Multiplicity="0..1" />
+          <End Role="detalle_cotizacion" Type="Self.detalle_cotizacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producto">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="detalle_cotizacion">
+              <PropertyRef Name="id_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_participantes_detalle">
+          <End Role="participantes" Type="Self.participante" Multiplicity="0..1" />
+          <End Role="detalle_participacion" Type="Self.detalle_participacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="participantes">
+              <PropertyRef Name="run" />
+            </Principal>
+            <Dependent Role="detalle_participacion">
+              <PropertyRef Name="run" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_empresa_stockempresa">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+          <End Role="Stock_RRFF_EMPRESA" Type="Self.Stock_RRFF_EMPRESA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="rol_unico_tributario" />
+            </Principal>
+            <Dependent Role="Stock_RRFF_EMPRESA">
+              <PropertyRef Name="rol_unico_tributario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_empresa_trabajadorempresa">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+          <End Role="Trabajador_empresa" Type="Self.Trabajador_empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="rol_unico_tributario" />
+            </Principal>
+            <Dependent Role="Trabajador_empresa">
+              <PropertyRef Name="rol_unico_tributario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relation_empresa_proyecto">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="rol_unico_tributario" />
+            </Principal>
+            <Dependent Role="Proyecto">
+              <PropertyRef Name="rol_unico_tributario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_etapa_factura">
+          <End Role="Factura" Type="Self.Factura" Multiplicity="1" />
+          <End Role="Etapa" Type="Self.Etapa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factura">
+              <PropertyRef Name="id_factura" />
+            </Principal>
+            <Dependent Role="Etapa">
+              <PropertyRef Name="id_factura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relacion_etapa_hito">
+          <End Role="Etapa" Type="Self.Etapa" Multiplicity="0..1" />
+          <End Role="Hito" Type="Self.Hito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Etapa">
+              <PropertyRef Name="id_etapa" />
+            </Principal>
+            <Dependent Role="Hito">
+              <PropertyRef Name="id_etapa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relacion_proyecto_etapa">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="0..1" />
+          <End Role="Etapa" Type="Self.Etapa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="id_proyecto" />
+            </Principal>
+            <Dependent Role="Etapa">
+              <PropertyRef Name="id_proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_pago_factura">
+          <End Role="Pago" Type="Self.Pago" Multiplicity="1" />
+          <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pago">
+              <PropertyRef Name="id_pago" />
+            </Principal>
+            <Dependent Role="Factura">
+              <PropertyRef Name="id_pago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relacion_hito_tarea">
+          <End Role="Hito" Type="Self.Hito" Multiplicity="0..1" />
+          <End Role="Tarea" Type="Self.Tarea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hito">
+              <PropertyRef Name="id_hito" />
+            </Principal>
+            <Dependent Role="Tarea">
+              <PropertyRef Name="id_hito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relacion_tarea_inspecciont">
+          <End Role="Tarea" Type="Self.Tarea" Multiplicity="0..1" />
+          <End Role="Inspeccion_tecnica" Type="Self.Inspeccion_tecnica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tarea">
+              <PropertyRef Name="id_tarea" />
+            </Principal>
+            <Dependent Role="Inspeccion_tecnica">
+              <PropertyRef Name="id_tarea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_usuario_pago">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Pago" Type="Self.Pago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="run_user" />
+            </Principal>
+            <Dependent Role="Pago">
+              <PropertyRef Name="run_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="herencia_persona_trabajadorempre">
+          <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
+          <End Role="Trabajador_empresa" Type="Self.Trabajador_empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persona">
+              <PropertyRef Name="run" />
+            </Principal>
+            <Dependent Role="Trabajador_empresa">
+              <PropertyRef Name="run" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_proyecto_sotckproyecto">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="0..1" />
+          <End Role="stock_RRFF_PROYECTO" Type="Self.stock_RRFF_PROYECTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="id_proyecto" />
+            </Principal>
+            <Dependent Role="stock_RRFF_PROYECTO">
+              <PropertyRef Name="id_proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_proyecto_trabajdorasignado">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="0..1" />
+          <End Role="trabajador_asignado" Type="Self.trabajador_asignado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="id_proyecto" />
+            </Principal>
+            <Dependent Role="trabajador_asignado">
+              <PropertyRef Name="id_proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="relacion_tarea_avance">
+          <End Role="Tarea" Type="Self.Tarea" Multiplicity="0..1" />
+          <End Role="registro_avance" Type="Self.registro_avance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tarea">
+              <PropertyRef Name="id_tarea" />
+            </Principal>
+            <Dependent Role="registro_avance">
+              <PropertyRef Name="id_tarea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relation_57">
+          <End Role="trabajador_asignado" Type="Self.trabajador_asignado" Multiplicity="0..1" />
+          <End Role="Sueldo" Type="Self.Sueldo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="trabajador_asignado">
+              <PropertyRef Name="id_asignacion" />
+            </Principal>
+            <Dependent Role="Sueldo">
+              <PropertyRef Name="id_asignacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="trabajador_asignado_Trabajador_empresa_FK">
+          <End Role="Trabajador_empresa" Type="Self.Trabajador_empresa" Multiplicity="0..1" />
+          <End Role="trabajador_asignado" Type="Self.trabajador_asignado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador_empresa">
+              <PropertyRef Name="run" />
+              <PropertyRef Name="id_trabajador" />
+            </Principal>
+            <Dependent Role="trabajador_asignado">
+              <PropertyRef Name="Trabajador_empresa_run" />
+              <PropertyRef Name="Trabajador_empresa_id_trabajador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="vialisEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Acta_reunion" EntityType="Self.Acta_reunion" />
+          <EntitySet Name="AFPs" EntityType="Self.AFP" />
+          <EntitySet Name="Asistencias" EntityType="Self.Asistencia" />
+          <EntitySet Name="boletas" EntityType="Self.boleta" />
+          <EntitySet Name="categorias" EntityType="Self.categoria" />
+          <EntitySet Name="ciudads" EntityType="Self.ciudad" />
+          <EntitySet Name="comunas" EntityType="Self.comuna" />
+          <EntitySet Name="Contratoes" EntityType="Self.Contrato" />
+          <EntitySet Name="Cotizacions" EntityType="Self.Cotizacion" />
+          <EntitySet Name="descuentoes" EntityType="Self.descuento" />
+          <EntitySet Name="detalle_boleta" EntityType="Self.detalle_boleta" />
+          <EntitySet Name="detalle_cotizacion" EntityType="Self.detalle_cotizacion" />
+          <EntitySet Name="detalle_participacion" EntityType="Self.detalle_participacion" />
+          <EntitySet Name="Empresas" EntityType="Self.Empresa" />
+          <EntitySet Name="Etapas" EntityType="Self.Etapa" />
+          <EntitySet Name="Facturas" EntityType="Self.Factura" />
+          <EntitySet Name="Hitoes" EntityType="Self.Hito" />
+          <EntitySet Name="Inspeccion_tecnica" EntityType="Self.Inspeccion_tecnica" />
+          <EntitySet Name="Pagoes" EntityType="Self.Pago" />
+          <EntitySet Name="participantes" EntityType="Self.participante" />
+          <EntitySet Name="Personas" EntityType="Self.Persona" />
+          <EntitySet Name="productoes" EntityType="Self.producto" />
+          <EntitySet Name="Proveedors" EntityType="Self.Proveedor" />
+          <EntitySet Name="Proyectoes" EntityType="Self.Proyecto" />
+          <EntitySet Name="regions" EntityType="Self.region" />
+          <EntitySet Name="registro_avance" EntityType="Self.registro_avance" />
+          <EntitySet Name="seguro_salud" EntityType="Self.seguro_salud" />
+          <EntitySet Name="Stock_RRFF_EMPRESA" EntityType="Self.Stock_RRFF_EMPRESA" />
+          <EntitySet Name="stock_RRFF_PROYECTO" EntityType="Self.stock_RRFF_PROYECTO" />
+          <EntitySet Name="subcategorias" EntityType="Self.subcategoria" />
+          <EntitySet Name="Sueldoes" EntityType="Self.Sueldo" />
+          <EntitySet Name="Tareas" EntityType="Self.Tarea" />
+          <EntitySet Name="trabajador_asignado" EntityType="Self.trabajador_asignado" />
+          <EntitySet Name="Trabajador_empresa" EntityType="Self.Trabajador_empresa" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+          <AssociationSet Name="relacion_acta_detalle" Association="Self.relacion_acta_detalle">
+            <End Role="Acta_reunion" EntitySet="Acta_reunion" />
+            <End Role="detalle_participacion" EntitySet="detalle_participacion" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_empresa_actaR" Association="Self.relacion_empresa_actaR">
+            <End Role="Empresa" EntitySet="Empresas" />
+            <End Role="Acta_reunion" EntitySet="Acta_reunion" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_etapa_actareunion" Association="Self.relacion_etapa_actareunion">
+            <End Role="Etapa" EntitySet="Etapas" />
+            <End Role="Acta_reunion" EntitySet="Acta_reunion" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_proyecto_actareunion" Association="Self.relacion_proyecto_actareunion">
+            <End Role="Proyecto" EntitySet="Proyectoes" />
+            <End Role="Acta_reunion" EntitySet="Acta_reunion" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_afp_dscto" Association="Self.relacion_afp_dscto">
+            <End Role="AFP" EntitySet="AFPs" />
+            <End Role="descuento" EntitySet="descuentoes" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_sueldo_asistencia" Association="Self.relacion_sueldo_asistencia">
+            <End Role="Proyecto" EntitySet="Proyectoes" />
+            <End Role="Asistencia" EntitySet="Asistencias" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_usuario_asistencia" Association="Self.relacion_usuario_asistencia">
+            <End Role="Usuario" EntitySet="Usuarios" />
+            <End Role="Asistencia" EntitySet="Asistencias" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_boleta_detalle_boleta" Association="Self.relacion_boleta_detalle_boleta">
+            <End Role="boleta" EntitySet="boletas" />
+            <End Role="detalle_boleta" EntitySet="detalle_boleta" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_boleta_stockempresa" Association="Self.relacion_boleta_stockempresa">
+            <End Role="boleta" EntitySet="boletas" />
+            <End Role="Stock_RRFF_EMPRESA" EntitySet="Stock_RRFF_EMPRESA" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_proveedor_boleta" Association="Self.relacion_proveedor_boleta">
+            <End Role="Proveedor" EntitySet="Proveedors" />
+            <End Role="boleta" EntitySet="boletas" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_stockproy_boleta" Association="Self.relacion_stockproy_boleta">
+            <End Role="boleta" EntitySet="boletas" />
+            <End Role="stock_RRFF_PROYECTO" EntitySet="stock_RRFF_PROYECTO" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_categoria_stockempresa" Association="Self.relacion_categoria_stockempresa">
+            <End Role="categoria" EntitySet="categorias" />
+            <End Role="Stock_RRFF_EMPRESA" EntitySet="Stock_RRFF_EMPRESA" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_categoria_subcategoria" Association="Self.relacion_categoria_subcategoria">
+            <End Role="categoria" EntitySet="categorias" />
+            <End Role="subcategoria" EntitySet="subcategorias" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_ciudad_comuna" Association="Self.relacion_ciudad_comuna">
+            <End Role="ciudad" EntitySet="ciudads" />
+            <End Role="comuna" EntitySet="comunas" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_region_ciudad" Association="Self.relacion_region_ciudad">
+            <End Role="region" EntitySet="regions" />
+            <End Role="ciudad" EntitySet="ciudads" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_comuna_persona" Association="Self.relacion_comuna_persona">
+            <End Role="comuna" EntitySet="comunas" />
+            <End Role="Persona" EntitySet="Personas" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_contrato_trabajadorasignado" Association="Self.relacion_contrato_trabajadorasignado">
+            <End Role="Contrato" EntitySet="Contratoes" />
+            <End Role="trabajador_asignado" EntitySet="trabajador_asignado" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_contrato_usuario" Association="Self.relacion_contrato_usuario">
+            <End Role="Contrato" EntitySet="Contratoes" />
+            <End Role="Usuario" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_cotizacion_detalle" Association="Self.relacion_cotizacion_detalle">
+            <End Role="Cotizacion" EntitySet="Cotizacions" />
+            <End Role="detalle_cotizacion" EntitySet="detalle_cotizacion" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_proveedor_cotizacion" Association="Self.relacion_proveedor_cotizacion">
+            <End Role="Proveedor" EntitySet="Proveedors" />
+            <End Role="Cotizacion" EntitySet="Cotizacions" />
+          </AssociationSet>
+          <AssociationSet Name="Relacion_proyecto_cotizacion" Association="Self.Relacion_proyecto_cotizacion">
+            <End Role="Proyecto" EntitySet="Proyectoes" />
+            <End Role="Cotizacion" EntitySet="Cotizacions" />
+          </AssociationSet>
+          <AssociationSet Name="descuento_Trabajador_empresa_FK" Association="Self.descuento_Trabajador_empresa_FK">
+            <End Role="Trabajador_empresa" EntitySet="Trabajador_empresa" />
+            <End Role="descuento" EntitySet="descuentoes" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_seguro_dscto" Association="Self.relacion_seguro_dscto">
+            <End Role="seguro_salud" EntitySet="seguro_salud" />
+            <End Role="descuento" EntitySet="descuentoes" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_producto_detalle_boleta" Association="Self.relacion_producto_detalle_boleta">
+            <End Role="producto" EntitySet="productoes" />
+            <End Role="detalle_boleta" EntitySet="detalle_boleta" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_producto_detalle_cotizacion" Association="Self.relacion_producto_detalle_cotizacion">
+            <End Role="producto" EntitySet="productoes" />
+            <End Role="detalle_cotizacion" EntitySet="detalle_cotizacion" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_participantes_detalle" Association="Self.relacion_participantes_detalle">
+            <End Role="participantes" EntitySet="participantes" />
+            <End Role="detalle_participacion" EntitySet="detalle_participacion" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_empresa_stockempresa" Association="Self.relacion_empresa_stockempresa">
+            <End Role="Empresa" EntitySet="Empresas" />
+            <End Role="Stock_RRFF_EMPRESA" EntitySet="Stock_RRFF_EMPRESA" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_empresa_trabajadorempresa" Association="Self.relacion_empresa_trabajadorempresa">
+            <End Role="Empresa" EntitySet="Empresas" />
+            <End Role="Trabajador_empresa" EntitySet="Trabajador_empresa" />
+          </AssociationSet>
+          <AssociationSet Name="Relation_empresa_proyecto" Association="Self.Relation_empresa_proyecto">
+            <End Role="Empresa" EntitySet="Empresas" />
+            <End Role="Proyecto" EntitySet="Proyectoes" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_etapa_factura" Association="Self.relacion_etapa_factura">
+            <End Role="Factura" EntitySet="Facturas" />
+            <End Role="Etapa" EntitySet="Etapas" />
+          </AssociationSet>
+          <AssociationSet Name="Relacion_etapa_hito" Association="Self.Relacion_etapa_hito">
+            <End Role="Etapa" EntitySet="Etapas" />
+            <End Role="Hito" EntitySet="Hitoes" />
+          </AssociationSet>
+          <AssociationSet Name="Relacion_proyecto_etapa" Association="Self.Relacion_proyecto_etapa">
+            <End Role="Proyecto" EntitySet="Proyectoes" />
+            <End Role="Etapa" EntitySet="Etapas" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_pago_factura" Association="Self.relacion_pago_factura">
+            <End Role="Pago" EntitySet="Pagoes" />
+            <End Role="Factura" EntitySet="Facturas" />
+          </AssociationSet>
+          <AssociationSet Name="Relacion_hito_tarea" Association="Self.Relacion_hito_tarea">
+            <End Role="Hito" EntitySet="Hitoes" />
+            <End Role="Tarea" EntitySet="Tareas" />
+          </AssociationSet>
+          <AssociationSet Name="Relacion_tarea_inspecciont" Association="Self.Relacion_tarea_inspecciont">
+            <End Role="Tarea" EntitySet="Tareas" />
+            <End Role="Inspeccion_tecnica" EntitySet="Inspeccion_tecnica" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_usuario_pago" Association="Self.relacion_usuario_pago">
+            <End Role="Usuario" EntitySet="Usuarios" />
+            <End Role="Pago" EntitySet="Pagoes" />
+          </AssociationSet>
+          <AssociationSet Name="herencia_persona_trabajadorempre" Association="Self.herencia_persona_trabajadorempre">
+            <End Role="Persona" EntitySet="Personas" />
+            <End Role="Trabajador_empresa" EntitySet="Trabajador_empresa" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_proyecto_sotckproyecto" Association="Self.relacion_proyecto_sotckproyecto">
+            <End Role="Proyecto" EntitySet="Proyectoes" />
+            <End Role="stock_RRFF_PROYECTO" EntitySet="stock_RRFF_PROYECTO" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_proyecto_trabajdorasignado" Association="Self.relacion_proyecto_trabajdorasignado">
+            <End Role="Proyecto" EntitySet="Proyectoes" />
+            <End Role="trabajador_asignado" EntitySet="trabajador_asignado" />
+          </AssociationSet>
+          <AssociationSet Name="relacion_tarea_avance" Association="Self.relacion_tarea_avance">
+            <End Role="Tarea" EntitySet="Tareas" />
+            <End Role="registro_avance" EntitySet="registro_avance" />
+          </AssociationSet>
+          <AssociationSet Name="Relation_57" Association="Self.Relation_57">
+            <End Role="trabajador_asignado" EntitySet="trabajador_asignado" />
+            <End Role="Sueldo" EntitySet="Sueldoes" />
+          </AssociationSet>
+          <AssociationSet Name="trabajador_asignado_Trabajador_empresa_FK" Association="Self.trabajador_asignado_Trabajador_empresa_FK">
+            <End Role="Trabajador_empresa" EntitySet="Trabajador_empresa" />
+            <End Role="trabajador_asignado" EntitySet="trabajador_asignado" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="vialisModelStoreContainer" CdmEntityContainer="vialisEntities">
+          <EntitySetMapping Name="Acta_reunion">
+            <EntityTypeMapping TypeName="vialisModel.Acta_reunion">
+              <MappingFragment StoreEntitySet="Acta_reunion">
+                <ScalarProperty Name="id_reunion" ColumnName="id_reunion" />
+                <ScalarProperty Name="id_proyecto" ColumnName="id_proyecto" />
+                <ScalarProperty Name="rol_unico_tributario" ColumnName="rol_unico_tributario" />
+                <ScalarProperty Name="id_etapa" ColumnName="id_etapa" />
+                <ScalarProperty Name="detalle_minuta" ColumnName="detalle_minuta" />
+                <ScalarProperty Name="fecha_reunion" ColumnName="fecha_reunion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AFPs">
+            <EntityTypeMapping TypeName="vialisModel.AFP">
+              <MappingFragment StoreEntitySet="AFP">
+                <ScalarProperty Name="id_AFP" ColumnName="id_AFP" />
+                <ScalarProperty Name="nombre_afp" ColumnName="nombre_afp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Asistencias">
+            <EntityTypeMapping TypeName="vialisModel.Asistencia">
+              <MappingFragment StoreEntitySet="Asistencia">
+                <ScalarProperty Name="id_asistencia" ColumnName="id_asistencia" />
+                <ScalarProperty Name="run_user" ColumnName="run_user" />
+                <ScalarProperty Name="id_proyecto" ColumnName="id_proyecto" />
+                <ScalarProperty Name="fecha_asistencia" ColumnName="fecha_asistencia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="boletas">
+            <EntityTypeMapping TypeName="vialisModel.boleta">
+              <MappingFragment StoreEntitySet="boleta">
+                <ScalarProperty Name="id_boleta" ColumnName="id_boleta" />
+                <ScalarProperty Name="id_proveedor" ColumnName="id_proveedor" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="categorias">
+            <EntityTypeMapping TypeName="vialisModel.categoria">
+              <MappingFragment StoreEntitySet="categoria">
+                <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+                <ScalarProperty Name="nombre_categoria" ColumnName="nombre_categoria" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ciudads">
+            <EntityTypeMapping TypeName="vialisModel.ciudad">
+              <MappingFragment StoreEntitySet="ciudad">
+                <ScalarProperty Name="id_ciudad" ColumnName="id_ciudad" />
+                <ScalarProperty Name="ciudad1" ColumnName="ciudad" />
+                <ScalarProperty Name="id_region" ColumnName="id_region" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="comunas">
+            <EntityTypeMapping TypeName="vialisModel.comuna">
+              <MappingFragment StoreEntitySet="comuna">
+                <ScalarProperty Name="id_comuna" ColumnName="id_comuna" />
+                <ScalarProperty Name="nombre_comuna" ColumnName="nombre_comuna" />
+                <ScalarProperty Name="id_ciudad" ColumnName="id_ciudad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contratoes">
+            <EntityTypeMapping TypeName="vialisModel.Contrato">
+              <MappingFragment StoreEntitySet="Contrato">
+                <ScalarProperty Name="id_contrato" ColumnName="id_contrato" />
+                <ScalarProperty Name="nombre_contrato" ColumnName="nombre_contrato" />
+                <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+                <ScalarProperty Name="fecha_termino" ColumnName="fecha_termino" />
+                <ScalarProperty Name="sueldo_base" ColumnName="sueldo_base" />
+                <ScalarProperty Name="dias_mesuales_req" ColumnName="dias_mesuales_req" />
+                <ScalarProperty Name="valor_dia" ColumnName="valor_dia" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cotizacions">
+            <EntityTypeMapping TypeName="vialisModel.Cotizacion">
+              <MappingFragment StoreEntitySet="Cotizacion">
+                <ScalarProperty Name="id_cotizacion" ColumnName="id_cotizacion" />
+                <ScalarProperty Name="id_proyecto" ColumnName="id_proyecto" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="id_proveedor" ColumnName="id_proveedor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="descuentoes">
+            <EntityTypeMapping TypeName="vialisModel.descuento">
+              <MappingFragment StoreEntitySet="descuento">
+                <ScalarProperty Name="id_descto" ColumnName="id_descto" />
+                <ScalarProperty Name="porc_descto" ColumnName="porc_descto" />
+                <ScalarProperty Name="id_AFP" ColumnName="id_AFP" />
+                <ScalarProperty Name="id_seguro_sald" ColumnName="id_seguro_sald" />
+                <ScalarProperty Name="Trabajador_empresa_run" ColumnName="Trabajador_empresa_run" />
+                <ScalarProperty Name="Trabajador_empresa_id_trabajador" ColumnName="Trabajador_empresa_id_trabajador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="detalle_boleta">
+            <EntityTypeMapping TypeName="vialisModel.detalle_boleta">
+              <MappingFragment StoreEntitySet="detalle_boleta">
+                <ScalarProperty Name="id_detalle_boleta" ColumnName="id_detalle_boleta" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="id_boleta" ColumnName="id_boleta" />
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="detalle_cotizacion">
+            <EntityTypeMapping TypeName="vialisModel.detalle_cotizacion">
+              <MappingFragment StoreEntitySet="detalle_cotizacion">
+                <ScalarProperty Name="id_detalle_cotizacion" ColumnName="id_detalle_cotizacion" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="id_cotizacion1" ColumnName="id_cotizacion1" />
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="detalle_participacion">
+            <EntityTypeMapping TypeName="vialisModel.detalle_participacion">
+              <MappingFragment StoreEntitySet="detalle_participacion">
+                <ScalarProperty Name="id_detalle_participacion" ColumnName="id_detalle_participacion" />
+                <ScalarProperty Name="id_reunion" ColumnName="id_reunion" />
+                <ScalarProperty Name="run" ColumnName="run" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empresas">
+            <EntityTypeMapping TypeName="vialisModel.Empresa">
+              <MappingFragment StoreEntitySet="Empresa">
+                <ScalarProperty Name="rol_unico_tributario" ColumnName="rol_unico_tributario" />
+                <ScalarProperty Name="nombre_empresa" ColumnName="nombre_empresa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Etapas">
+            <EntityTypeMapping TypeName="vialisModel.Etapa">
+              <MappingFragment StoreEntitySet="Etapa">
+                <ScalarProperty Name="id_etapa" ColumnName="id_etapa" />
+                <ScalarProperty Name="id_proyecto" ColumnName="id_proyecto" />
+                <ScalarProperty Name="nombre_etapa" ColumnName="nombre_etapa" />
+                <ScalarProperty Name="descripcion_etapa" ColumnName="descripcion_etapa" />
+                <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+                <ScalarProperty Name="fecha_termino" ColumnName="fecha_termino" />
+                <ScalarProperty Name="nivel_avance" ColumnName="nivel_avance" />
+                <ScalarProperty Name="id_factura" ColumnName="id_factura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Facturas">
+            <EntityTypeMapping TypeName="vialisModel.Factura">
+              <MappingFragment StoreEntitySet="Factura">
+                <ScalarProperty Name="id_factura" ColumnName="id_factura" />
+                <ScalarProperty Name="detalle_factura" ColumnName="detalle_factura" />
+                <ScalarProperty Name="costo" ColumnName="costo" />
+                <ScalarProperty Name="fecha_emision" ColumnName="fecha_emision" />
+                <ScalarProperty Name="id_pago" ColumnName="id_pago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hitoes">
+            <EntityTypeMapping TypeName="vialisModel.Hito">
+              <MappingFragment StoreEntitySet="Hito">
+                <ScalarProperty Name="id_hito" ColumnName="id_hito" />
+                <ScalarProperty Name="id_etapa" ColumnName="id_etapa" />
+                <ScalarProperty Name="nombre_hito" ColumnName="nombre_hito" />
+                <ScalarProperty Name="descripcion_hito" ColumnName="descripcion_hito" />
+                <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+                <ScalarProperty Name="fecha_termino" ColumnName="fecha_termino" />
+                <ScalarProperty Name="nivel_avance" ColumnName="nivel_avance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inspeccion_tecnica">
+            <EntityTypeMapping TypeName="vialisModel.Inspeccion_tecnica">
+              <MappingFragment StoreEntitySet="Inspeccion_tecnica">
+                <ScalarProperty Name="id_inspeccion_tec" ColumnName="id_inspeccion_tec" />
+                <ScalarProperty Name="id_tarea" ColumnName="id_tarea" />
+                <ScalarProperty Name="detalle_inspeccion_t" ColumnName="detalle_inspeccion_t" />
+                <ScalarProperty Name="nivel_avance" ColumnName="nivel_avance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pagoes">
+            <EntityTypeMapping TypeName="vialisModel.Pago">
+              <MappingFragment StoreEntitySet="Pago">
+                <ScalarProperty Name="id_pago" ColumnName="id_pago" />
+                <ScalarProperty Name="estado_pago" ColumnName="estado_pago" />
+                <ScalarProperty Name="fecha_pago" ColumnName="fecha_pago" />
+                <ScalarProperty Name="costo" ColumnName="costo" />
+                <ScalarProperty Name="run_user" ColumnName="run_user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="participantes">
+            <EntityTypeMapping TypeName="vialisModel.participante">
+              <MappingFragment StoreEntitySet="participantes">
+                <ScalarProperty Name="run" ColumnName="run" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="ap_paterno" ColumnName="ap_paterno" />
+                <ScalarProperty Name="ap_materno" ColumnName="ap_materno" />
+                <ScalarProperty Name="responsabilidad" ColumnName="responsabilidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personas">
+            <EntityTypeMapping TypeName="vialisModel.Persona">
+              <MappingFragment StoreEntitySet="Persona">
+                <ScalarProperty Name="run" ColumnName="run" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido_paterno" ColumnName="apellido_paterno" />
+                <ScalarProperty Name="apellido_materno" ColumnName="apellido_materno" />
+                <ScalarProperty Name="sexo" ColumnName="sexo" />
+                <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="id_comuna" ColumnName="id_comuna" />
+                <ScalarProperty Name="estado_civil" ColumnName="estado_civil" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="productoes">
+            <EntityTypeMapping TypeName="vialisModel.producto">
+              <MappingFragment StoreEntitySet="producto">
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+                <ScalarProperty Name="nombre_producto" ColumnName="nombre_producto" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="marca" ColumnName="marca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proveedors">
+            <EntityTypeMapping TypeName="vialisModel.Proveedor">
+              <MappingFragment StoreEntitySet="Proveedor">
+                <ScalarProperty Name="id_proveedor" ColumnName="id_proveedor" />
+                <ScalarProperty Name="nombre_proveedor" ColumnName="nombre_proveedor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proyectoes">
+            <EntityTypeMapping TypeName="vialisModel.Proyecto">
+              <MappingFragment StoreEntitySet="Proyecto">
+                <ScalarProperty Name="id_proyecto" ColumnName="id_proyecto" />
+                <ScalarProperty Name="rol_unico_tributario" ColumnName="rol_unico_tributario" />
+                <ScalarProperty Name="nombre_proyecto" ColumnName="nombre_proyecto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="regions">
+            <EntityTypeMapping TypeName="vialisModel.region">
+              <MappingFragment StoreEntitySet="region">
+                <ScalarProperty Name="id_region" ColumnName="id_region" />
+                <ScalarProperty Name="nombre_region" ColumnName="nombre_region" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="registro_avance">
+            <EntityTypeMapping TypeName="vialisModel.registro_avance">
+              <MappingFragment StoreEntitySet="registro_avance">
+                <ScalarProperty Name="id_reg_avance" ColumnName="id_reg_avance" />
+                <ScalarProperty Name="id_tarea" ColumnName="id_tarea" />
+                <ScalarProperty Name="nivel_avance" ColumnName="nivel_avance" />
+                <ScalarProperty Name="detalle" ColumnName="detalle" />
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="seguro_salud">
+            <EntityTypeMapping TypeName="vialisModel.seguro_salud">
+              <MappingFragment StoreEntitySet="seguro_salud">
+                <ScalarProperty Name="id_seguro_sald" ColumnName="id_seguro_sald" />
+                <ScalarProperty Name="nombre_seg_sald" ColumnName="nombre_seg_sald" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stock_RRFF_EMPRESA">
+            <EntityTypeMapping TypeName="vialisModel.Stock_RRFF_EMPRESA">
+              <MappingFragment StoreEntitySet="Stock_RRFF_EMPRESA">
+                <ScalarProperty Name="id_material" ColumnName="id_material" />
+                <ScalarProperty Name="rol_unico_tributario" ColumnName="rol_unico_tributario" />
+                <ScalarProperty Name="marca" ColumnName="marca" />
+                <ScalarProperty Name="nombre_producto" ColumnName="nombre_producto" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="id_boleta" ColumnName="id_boleta" />
+                <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stock_RRFF_PROYECTO">
+            <EntityTypeMapping TypeName="vialisModel.stock_RRFF_PROYECTO">
+              <MappingFragment StoreEntitySet="stock_RRFF_PROYECTO">
+                <ScalarProperty Name="id_material" ColumnName="id_material" />
+                <ScalarProperty Name="id_proyecto" ColumnName="id_proyecto" />
+                <ScalarProperty Name="marca" ColumnName="marca" />
+                <ScalarProperty Name="nombre_producto" ColumnName="nombre_producto" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="id_boleta" ColumnName="id_boleta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subcategorias">
+            <EntityTypeMapping TypeName="vialisModel.subcategoria">
+              <MappingFragment StoreEntitySet="subcategoria">
+                <ScalarProperty Name="id_subcategoria" ColumnName="id_subcategoria" />
+                <ScalarProperty Name="nombre_subcategoria" ColumnName="nombre_subcategoria" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="id_categoria" ColumnName="id_categoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sueldoes">
+            <EntityTypeMapping TypeName="vialisModel.Sueldo">
+              <MappingFragment StoreEntitySet="Sueldo">
+                <ScalarProperty Name="id_sueldo" ColumnName="id_sueldo" />
+                <ScalarProperty Name="id_asignacion" ColumnName="id_asignacion" />
+                <ScalarProperty Name="dias_trabajados" ColumnName="dias_trabajados" />
+                <ScalarProperty Name="valor_dia" ColumnName="valor_dia" />
+                <ScalarProperty Name="total" ColumnName="total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tareas">
+            <EntityTypeMapping TypeName="vialisModel.Tarea">
+              <MappingFragment StoreEntitySet="Tarea">
+                <ScalarProperty Name="id_tarea" ColumnName="id_tarea" />
+                <ScalarProperty Name="id_hito" ColumnName="id_hito" />
+                <ScalarProperty Name="nombre_tarea" ColumnName="nombre_tarea" />
+                <ScalarProperty Name="descripcion_tarea" ColumnName="descripcion_tarea" />
+                <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+                <ScalarProperty Name="fecha_termino" ColumnName="fecha_termino" />
+                <ScalarProperty Name="nivel_avance" ColumnName="nivel_avance" />
+                <ScalarProperty Name="costo" ColumnName="costo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="trabajador_asignado">
+            <EntityTypeMapping TypeName="vialisModel.trabajador_asignado">
+              <MappingFragment StoreEntitySet="trabajador_asignado">
+                <ScalarProperty Name="id_asignacion" ColumnName="id_asignacion" />
+                <ScalarProperty Name="responsabilidad" ColumnName="responsabilidad" />
+                <ScalarProperty Name="id_contrato" ColumnName="id_contrato" />
+                <ScalarProperty Name="id_proyecto" ColumnName="id_proyecto" />
+                <ScalarProperty Name="Trabajador_empresa_run" ColumnName="Trabajador_empresa_run" />
+                <ScalarProperty Name="Trabajador_empresa_id_trabajador" ColumnName="Trabajador_empresa_id_trabajador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trabajador_empresa">
+            <EntityTypeMapping TypeName="vialisModel.Trabajador_empresa">
+              <MappingFragment StoreEntitySet="Trabajador_empresa">
+                <ScalarProperty Name="run" ColumnName="run" />
+                <ScalarProperty Name="id_trabajador" ColumnName="id_trabajador" />
+                <ScalarProperty Name="oficio_profesion" ColumnName="oficio_profesion" />
+                <ScalarProperty Name="rol_unico_tributario" ColumnName="rol_unico_tributario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="vialisModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="run_user" ColumnName="run_user" />
+                <ScalarProperty Name="passw" ColumnName="passw" />
+                <ScalarProperty Name="id_contrato" ColumnName="id_contrato" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

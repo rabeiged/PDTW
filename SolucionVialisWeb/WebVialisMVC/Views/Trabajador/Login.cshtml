@@ -1,0 +1,54 @@
+﻿<div class="container" style="padding-top: 10%">
+    <div class="row" id="pwd-container">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Acceso</h3>
+                </div>
+                <section class="login-form" style="margin: 5%">
+                    <form method="post">
+                        <div id="mensaje"></div>
+                        <input type="text" name="run" class="form-control input-lg" id="run" placeholder="Run" />
+                        <input type="password" name="password" class="form-control input-lg" id="password" placeholder="Contraseña" />
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="">Recordarme</label>
+                        </div>
+                        <a href="#" name="enviar" id="enviar" class="btn btn-lg btn-primary btn-block">Iniciar sesión</a>
+                    </form>
+                </section>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+</div>
+<script>
+    $("#enviar").click(function ()
+    {
+        var dataObject = { run_user: $("#run").val(), passw: $("#password").val() };
+        $.ajax({
+            url: '@Url.Action("Login", "Trabajador")',
+            type: "POST",
+            data: dataObject,
+            datatype: "json",
+            success: function(result)
+            {
+                if(result.toString() == "Success")
+                {
+                    
+                }
+                else
+                {
+                    $("#run").val("");
+                    $("#password").val("");
+                    $("#mensaje").html('<div class="alert alert-danger" role="alert">' + result + '</div>');
+                }
+            },
+            error: function(result)
+            {
+                $("#mensaje").html('<div class="alert alert-danger" role="alert"> Error! Intente nuevamente. </div>');
+            }
+        });
+    })
+</script>
+

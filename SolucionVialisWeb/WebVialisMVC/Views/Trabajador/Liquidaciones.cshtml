@@ -1,0 +1,99 @@
+﻿<hr>
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-2">
+        <ul class="nav nav-pills nav-stacked">
+            <li role="presentation"><a href="../Trabajador/Informacion">Información personal</a></li>
+            <li role="presentation" class="active"><a href="../Trabajador/Liquidaciones">Liquidaciones</a></li>
+        </ul>
+    </div>
+    <div class="col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Buscar por código...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-secondary" type="button">Buscar</button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-9"></div>
+                </div>
+                <hr>
+                <div id="sandbox-container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label class="control-label" for="date">Desde:</label>
+                            <div class="input-group date">
+                                <!-- Date input -->
+                                <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3"></div>
+                        <div class="col-md-3">
+                            <label class="control-label" for="date">Hasta:</label>
+                            <div class="input-group date">
+                                <!-- Date input -->
+                                <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Fecha</th>
+                                    <th>Proyecto</th>
+                                    <th>Descarga</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>proy_1</td>
+                                    <td>06/06/2006</td>
+                                    <td>Pavimentación</td>
+                                    <td>Imagen</td>
+                                </tr>
+                                <tr>
+                                    <td>proy_2</td>
+                                    <td>12/09/2014</td>
+                                    <td>Remodelación</td>
+                                    <td>Imagen</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-4">
+                        <ul class="pagination">
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+<script>
+    $('#sandbox-container .input-group.date').datepicker({
+        autoclose: true,
+    	language: "es",
+    	todayBtn: true,
+    	clearBtn: true,
+    	todayHighlight: true
+	});
+</script>  

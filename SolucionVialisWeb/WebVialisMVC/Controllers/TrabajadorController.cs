@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebVialisMVC.Models;
-using WebVialisMVC.Contexto;
+using System.Web.Script.Serialization;
 
 namespace WebVialisMVC.Controllers
 {
@@ -15,7 +15,42 @@ namespace WebVialisMVC.Controllers
         // GET: Login
         public ActionResult Login()
         {
-            return View();
+            if (Session["usuario"] != null)
+            {
+                return RedirectToAction("Informacion", "Trabajador");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        // GET: Informacion
+        public ActionResult Informacion()
+        {
+            // Restricción a vistas (sesión iniciada)
+            if (Session["usuario"] == null)
+            {
+                return RedirectToAction("Login", "Trabajador");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        //GET: Liquidaciones
+        public ActionResult Liquidaciones()
+        {
+            // Restricción a vistas (sesión iniciada)
+            if (Session["usuario"] == null)
+            {
+                return RedirectToAction("Login", "Trabajador");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         // Validación inicio de sesión
@@ -23,30 +58,41 @@ namespace WebVialisMVC.Controllers
         public ActionResult Login(Usuario usuario)
         {
             string message = "";
-            if(ModelState.IsValid)
+            // Validación campos vacíos
+            if (string.IsNullOrEmpty(usuario.run) || string.IsNullOrEmpty(usuario.password))
             {
-                if(UserBL.ValidarUsuario(usuario) > 0)
+                message = "Todos los campos requeridos.";
+                
+            }
+            else
+            {
+                // Validación de usuario
+                if (UserBL.ValidarUsuario(usuario) > 0)
                 {
                     message = "Success";
-                    //return RedirectToAction("Informacion", "Trabajador");
+                    Session["usuario"] = usuario.run;
                 }
                 else
                 {
                     message = "Usuario o contraseña incorrectos.";
                 }
             }
-            else
-            {
-                message = "Todos los campos requeridos.";
-            }
+            // Envío de JSON
             if(Request.IsAjaxRequest())
             {
                 return Json(message, JsonRequestBehavior.AllowGet);
             }
             else
             {
-                return RedirectToAction("Informacion", "Trabajador");
+                return RedirectToAction("Login", "Trabajador");
             }
+        }
+
+        [HttpPost]
+        public ActionResult Logout()
+        {
+            Session["usuario"] = null;
+            return RedirectToAction("Login", "Trabajador");
         }
     }
 }

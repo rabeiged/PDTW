@@ -7,8 +7,8 @@
                     <h3 class="panel-title">Acceso</h3>
                 </div>
                 <section class="login-form" style="margin: 5%">
-                    <form method="post">
-                        <div id="mensaje"></div>
+                    <form action="../Trabajador/Login" method="post">
+                        <div id='mensaje'></div>
                         <input type="text" name="run" class="form-control input-lg" id="run" placeholder="Run" />
                         <input type="password" name="password" class="form-control input-lg" id="password" placeholder="Contraseña" />
                         <div class="checkbox">
@@ -25,27 +25,32 @@
 <script>
     $("#enviar").click(function ()
     {
-        var dataObject = { run_user: $("#run").val(), passw: $("#password").val() };
+        var run = $("#run").val();
+        var password = $("#password").val();
+        var datos = { run: run, password: password };
         $.ajax({
             url: '@Url.Action("Login", "Trabajador")',
             type: "POST",
-            data: dataObject,
+            data: datos,
             datatype: "json",
             success: function(result)
             {
-                if(result.toString() == "Success")
+                if (result == "Success")
                 {
-                    
+                    // Reenvía a pagina información
+                    document.location.href = '../Trabajador/Informacion';
                 }
                 else
                 {
+                    // Limpia campos y muestra mensaje
                     $("#run").val("");
                     $("#password").val("");
                     $("#mensaje").html('<div class="alert alert-danger" role="alert">' + result + '</div>');
                 }
             },
-            error: function(result)
+            error: function (result)
             {
+                // Muestra mensaje
                 $("#mensaje").html('<div class="alert alert-danger" role="alert"> Error! Intente nuevamente. </div>');
             }
         });

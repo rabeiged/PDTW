@@ -5,36 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--<title>@ViewBag.Title - My ASP.NET Application</title>-->
     <title>VIALIS</title>
+    <!-- Estilos -->
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <script src="~/scripts/jquery-1.10.2.js"></script>
-    <script src="~/scripts/jquery-1.10.2.min.js"></script>
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/datepicker/bootstrap-datepicker3.css" rel="stylesheet">
+    <!-- Scripts-->
+    <script src="~/scripts/jquery-1.10.2.js"></script>
+    <script src="~/scripts/jquery-1.10.2.min.js"></script>
     <script src="~/scripts/bootstrap.js"></script>
     <script src="~/scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <!-- Include Date Picker -->
+    <script src="~/Scripts/datepicker/bootstrap-datepicker.min.js"></script>
+    <!-- Idioma español Date Picker -->
+    <script src="~/Scripts/locales/bootstrap-datepicker.es.min.js" charset="UTF-8"></script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("VIALIS", "Trabajador", "Informacion", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("VIALIS", "Informacion", "Trabajador", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                 </ul>
+                @if (Session["usuario"] != null)
+                {
+                <div class="navbar-right" style="padding-right: 1%">
+                    <p class="navbar-text">Bienvenido <a href="../Trabajador/Informacion" class="navbar-link">@Session["usuario"]</a></p>
+                    <form class="navbar-form navbar-left" role="salir" action="Logout" method="post">
+                        <button type="submit" class="btn btn-default">Salir</button>
+                    </form>
+                </div>
+                }
             </div>
         </div>
     </div>
-
-    <div class="container body-content">
+    
+    <div class="container-fluid body-content">
         @RenderBody()
-        <hr />
         <footer class="navbar-default navbar-fixed-bottom">
             <div class="container-fluid">
                 <p class="text-center">&copy; @DateTime.Now.Year - Constructora VIALIS</p>

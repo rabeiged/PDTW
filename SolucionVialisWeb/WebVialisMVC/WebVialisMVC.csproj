@@ -280,6 +280,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\UserBusinessLogic.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -304,6 +305,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Trabajador\Login.cshtml" />
+    <Content Include="Views\Trabajador\Informacion.cshtml" />
+    <Content Include="Views\Trabajador\Liquidaciones.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -313,6 +316,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\datepicker\" />
+    <Folder Include="scripts\datepicker\" />
+    <Folder Include="scripts\locales\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

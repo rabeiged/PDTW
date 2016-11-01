@@ -17,18 +17,18 @@ namespace WebVialisMVC.Contexto
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Acta_reunion()
         {
-            this.detalle_participacion = new HashSet<detalle_participacion>();
+            this.Detalle_participacion = new HashSet<Detalle_participacion>();
         }
     
         public string id_reunion { get; set; }
         public string id_proyecto { get; set; }
-        public string rol_unico_tributario { get; set; }
+        public string rol { get; set; }
         public string id_etapa { get; set; }
         public string detalle_minuta { get; set; }
         public Nullable<System.DateTime> fecha_reunion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<detalle_participacion> detalle_participacion { get; set; }
+        public virtual ICollection<Detalle_participacion> Detalle_participacion { get; set; }
         public virtual Empresa Empresa { get; set; }
         public virtual Etapa Etapa { get; set; }
         public virtual Proyecto Proyecto { get; set; }

@@ -20,17 +20,17 @@ namespace WebVialisMVC.Contexto
             this.Trabajador_empresa = new HashSet<Trabajador_empresa>();
         }
     
-        public string run { get; set; }
-        public string nombre { get; set; }
-        public string apellido_paterno { get; set; }
-        public string apellido_materno { get; set; }
-        public string sexo { get; set; }
-        public Nullable<System.DateTime> fecha_nacimiento { get; set; }
-        public string direccion { get; set; }
-        public Nullable<decimal> id_comuna { get; set; }
-        public string estado_civil { get; set; }
+        public string Persona_run { get; set; }
+        public string Persona_nombre { get; set; }
+        public string Persona_apellido_paterno { get; set; }
+        public string Persona_apellido_materno { get; set; }
+        public string Persona_sexo { get; set; }
+        public Nullable<System.DateTime> Persona_fecha_nacimiento { get; set; }
+        public string Persona_direccion { get; set; }
+        public Nullable<decimal> Persona_id_comuna { get; set; }
+        public string Persona_estado_civil { get; set; }
     
-        public virtual comuna comuna { get; set; }
+        public virtual Comuna Comuna { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Trabajador_empresa> Trabajador_empresa { get; set; }
     }

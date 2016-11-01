@@ -18,29 +18,29 @@ namespace WebVialisMVC.Contexto
         public Proyecto()
         {
             this.Acta_reunion = new HashSet<Acta_reunion>();
-            this.Asistencias = new HashSet<Asistencia>();
-            this.Cotizacions = new HashSet<Cotizacion>();
-            this.Etapas = new HashSet<Etapa>();
-            this.stock_RRFF_PROYECTO = new HashSet<stock_RRFF_PROYECTO>();
-            this.trabajador_asignado = new HashSet<trabajador_asignado>();
+            this.Asistencia = new HashSet<Asistencia>();
+            this.Cotizacion = new HashSet<Cotizacion>();
+            this.Etapa = new HashSet<Etapa>();
+            this.Stock_RRFF_PROYECTO = new HashSet<Stock_RRFF_PROYECTO>();
+            this.Trabajador_asignado = new HashSet<Trabajador_asignado>();
         }
     
         public string id_proyecto { get; set; }
-        public string rol_unico_tributario { get; set; }
+        public string rol { get; set; }
         public string nombre_proyecto { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Acta_reunion> Acta_reunion { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Asistencia> Asistencias { get; set; }
+        public virtual ICollection<Asistencia> Asistencia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cotizacion> Cotizacions { get; set; }
+        public virtual ICollection<Cotizacion> Cotizacion { get; set; }
         public virtual Empresa Empresa { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Etapa> Etapas { get; set; }
+        public virtual ICollection<Etapa> Etapa { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<stock_RRFF_PROYECTO> stock_RRFF_PROYECTO { get; set; }
+        public virtual ICollection<Stock_RRFF_PROYECTO> Stock_RRFF_PROYECTO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<trabajador_asignado> trabajador_asignado { get; set; }
+        public virtual ICollection<Trabajador_asignado> Trabajador_asignado { get; set; }
     }
 }

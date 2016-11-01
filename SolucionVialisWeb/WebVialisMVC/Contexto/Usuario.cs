@@ -17,8 +17,8 @@ namespace WebVialisMVC.Contexto
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Usuario()
         {
-            this.Asistencias = new HashSet<Asistencia>();
-            this.Pagoes = new HashSet<Pago>();
+            this.Asistencia = new HashSet<Asistencia>();
+            this.Pago = new HashSet<Pago>();
         }
     
         public string run_user { get; set; }
@@ -26,9 +26,9 @@ namespace WebVialisMVC.Contexto
         public string id_contrato { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Asistencia> Asistencias { get; set; }
+        public virtual ICollection<Asistencia> Asistencia { get; set; }
         public virtual Contrato Contrato { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Pago> Pagoes { get; set; }
+        public virtual ICollection<Pago> Pago { get; set; }
     }
 }

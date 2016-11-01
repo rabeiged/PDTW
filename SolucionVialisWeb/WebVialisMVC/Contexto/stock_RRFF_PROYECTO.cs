@@ -12,7 +12,7 @@ namespace WebVialisMVC.Contexto
     using System;
     using System.Collections.Generic;
     
-    public partial class stock_RRFF_PROYECTO
+    public partial class Stock_RRFF_PROYECTO
     {
         public string id_material { get; set; }
         public string id_proyecto { get; set; }
@@ -21,7 +21,7 @@ namespace WebVialisMVC.Contexto
         public Nullable<decimal> cantidad { get; set; }
         public string id_boleta { get; set; }
     
-        public virtual boleta boleta { get; set; }
+        public virtual Boleta Boleta { get; set; }
         public virtual Proyecto Proyecto { get; set; }
     }
 }

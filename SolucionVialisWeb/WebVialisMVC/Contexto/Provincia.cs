@@ -12,20 +12,20 @@ namespace WebVialisMVC.Contexto
     using System;
     using System.Collections.Generic;
     
-    public partial class ciudad
+    public partial class Provincia
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ciudad()
+        public Provincia()
         {
-            this.comunas = new HashSet<comuna>();
+            this.Comuna = new HashSet<Comuna>();
         }
     
-        public decimal id_ciudad { get; set; }
-        public string ciudad1 { get; set; }
+        public decimal id_provincia { get; set; }
+        public string nombre_provincia { get; set; }
         public Nullable<decimal> id_region { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<comuna> comunas { get; set; }
-        public virtual region region { get; set; }
+        public virtual ICollection<Comuna> Comuna { get; set; }
+        public virtual Region Region { get; set; }
     }
 }

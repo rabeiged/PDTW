@@ -17,16 +17,16 @@ namespace WebVialisMVC.Contexto
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Proveedor()
         {
-            this.boletas = new HashSet<boleta>();
-            this.Cotizacions = new HashSet<Cotizacion>();
+            this.Boleta = new HashSet<Boleta>();
+            this.Cotizacion = new HashSet<Cotizacion>();
         }
     
         public string id_proveedor { get; set; }
         public string nombre_proveedor { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<boleta> boletas { get; set; }
+        public virtual ICollection<Boleta> Boleta { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cotizacion> Cotizacions { get; set; }
+        public virtual ICollection<Cotizacion> Cotizacion { get; set; }
     }
 }

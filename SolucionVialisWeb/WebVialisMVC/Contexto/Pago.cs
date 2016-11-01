@@ -17,7 +17,7 @@ namespace WebVialisMVC.Contexto
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Pago()
         {
-            this.Facturas = new HashSet<Factura>();
+            this.Factura = new HashSet<Factura>();
         }
     
         public string id_pago { get; set; }
@@ -27,7 +27,7 @@ namespace WebVialisMVC.Contexto
         public string run_user { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Factura> Facturas { get; set; }
+        public virtual ICollection<Factura> Factura { get; set; }
         public virtual Usuario Usuario { get; set; }
     }
 }

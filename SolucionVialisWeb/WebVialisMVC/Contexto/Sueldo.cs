@@ -20,6 +20,6 @@ namespace WebVialisMVC.Contexto
         public Nullable<decimal> valor_dia { get; set; }
         public Nullable<decimal> total { get; set; }
     
-        public virtual trabajador_asignado trabajador_asignado { get; set; }
+        public virtual Trabajador_asignado Trabajador_asignado { get; set; }
     }
 }

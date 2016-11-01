@@ -12,26 +12,26 @@ namespace WebVialisMVC.Contexto
     using System;
     using System.Collections.Generic;
     
-    public partial class boleta
+    public partial class Boleta
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public boleta()
+        public Boleta()
         {
-            this.detalle_boleta = new HashSet<detalle_boleta>();
+            this.Detalle_boleta = new HashSet<Detalle_boleta>();
             this.Stock_RRFF_EMPRESA = new HashSet<Stock_RRFF_EMPRESA>();
-            this.stock_RRFF_PROYECTO = new HashSet<stock_RRFF_PROYECTO>();
+            this.Stock_RRFF_PROYECTO = new HashSet<Stock_RRFF_PROYECTO>();
         }
     
         public string id_boleta { get; set; }
         public string id_proveedor { get; set; }
-        public string fecha { get; set; }
+        public Nullable<System.DateTime> fecha { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<detalle_boleta> detalle_boleta { get; set; }
+        public virtual ICollection<Detalle_boleta> Detalle_boleta { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stock_RRFF_EMPRESA> Stock_RRFF_EMPRESA { get; set; }
         public virtual Proveedor Proveedor { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<stock_RRFF_PROYECTO> stock_RRFF_PROYECTO { get; set; }
+        public virtual ICollection<Stock_RRFF_PROYECTO> Stock_RRFF_PROYECTO { get; set; }
     }
 }

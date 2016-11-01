@@ -17,7 +17,7 @@ namespace WebVialisMVC.Contexto
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Hito()
         {
-            this.Tareas = new HashSet<Tarea>();
+            this.Tarea = new HashSet<Tarea>();
         }
     
         public string id_hito { get; set; }
@@ -30,6 +30,6 @@ namespace WebVialisMVC.Contexto
     
         public virtual Etapa Etapa { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tarea> Tareas { get; set; }
+        public virtual ICollection<Tarea> Tarea { get; set; }
     }
 }

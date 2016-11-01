@@ -12,7 +12,7 @@ namespace WebVialisMVC.Contexto
     using System;
     using System.Collections.Generic;
     
-    public partial class registro_avance
+    public partial class Registro_avance
     {
         public decimal id_reg_avance { get; set; }
         public string id_tarea { get; set; }

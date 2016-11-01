@@ -12,13 +12,13 @@ namespace WebVialisMVC.Contexto
     using System;
     using System.Collections.Generic;
     
-    public partial class categoria
+    public partial class Categoria
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public categoria()
+        public Categoria()
         {
             this.Stock_RRFF_EMPRESA = new HashSet<Stock_RRFF_EMPRESA>();
-            this.subcategorias = new HashSet<subcategoria>();
+            this.Subcategoria = new HashSet<Subcategoria>();
         }
     
         public decimal id_categoria { get; set; }
@@ -28,6 +28,6 @@ namespace WebVialisMVC.Contexto
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stock_RRFF_EMPRESA> Stock_RRFF_EMPRESA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<subcategoria> subcategorias { get; set; }
+        public virtual ICollection<Subcategoria> Subcategoria { get; set; }
     }
 }

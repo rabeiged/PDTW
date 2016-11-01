@@ -12,7 +12,7 @@ namespace WebVialisMVC.Contexto
     using System;
     using System.Collections.Generic;
     
-    public partial class detalle_boleta
+    public partial class Detalle_boleta
     {
         public decimal id_detalle_boleta { get; set; }
         public decimal cantidad { get; set; }
@@ -20,7 +20,7 @@ namespace WebVialisMVC.Contexto
         public string id_boleta { get; set; }
         public string id_producto { get; set; }
     
-        public virtual boleta boleta { get; set; }
-        public virtual producto producto { get; set; }
+        public virtual Boleta Boleta { get; set; }
+        public virtual Producto Producto { get; set; }
     }
 }

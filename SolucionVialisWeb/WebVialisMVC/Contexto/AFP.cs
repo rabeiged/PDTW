@@ -17,13 +17,13 @@ namespace WebVialisMVC.Contexto
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public AFP()
         {
-            this.descuentoes = new HashSet<descuento>();
+            this.Descuento = new HashSet<Descuento>();
         }
     
-        public string id_AFP { get; set; }
+        public decimal id_AFP { get; set; }
         public string nombre_afp { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<descuento> descuentoes { get; set; }
+        public virtual ICollection<Descuento> Descuento { get; set; }
     }
 }

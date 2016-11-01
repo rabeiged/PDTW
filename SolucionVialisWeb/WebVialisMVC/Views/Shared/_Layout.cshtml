@@ -15,11 +15,11 @@
     <script src="~/scripts/jquery-1.10.2.min.js"></script>
     <script src="~/scripts/bootstrap.js"></script>
     <script src="~/scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/scripts/modernizr-2.6.2.js"></script>
     <!-- Include Date Picker -->
-    <script src="~/Scripts/datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="~/scripts/datepicker/bootstrap-datepicker.min.js"></script>
     <!-- Idioma español Date Picker -->
-    <script src="~/Scripts/locales/bootstrap-datepicker.es.min.js" charset="UTF-8"></script>
+    <script src="~/scripts/locales/bootstrap-datepicker.es.min.js" charset="UTF-8"></script>
 </head>
 <body>
     <div class="navbar navbar-default navbar-fixed-top">
@@ -38,8 +38,8 @@
                 @if (Session["usuario"] != null)
                 {
                 <div class="navbar-right" style="padding-right: 1%">
-                    <p class="navbar-text">Bienvenido <a href="../Trabajador/Informacion" class="navbar-link">@Session["usuario"]</a></p>
-                    <form class="navbar-form navbar-left" role="salir" action="Logout" method="post">
+                    <p class="navbar-text">Bienvenido <a href="../Trabajador/Informacion" class="navbar-link">@Session["nombre"]</a></p>
+                    <form class="navbar-form navbar-left" action="Logout" method="post">
                         <button type="submit" class="btn btn-default">Salir</button>
                     </form>
                 </div>

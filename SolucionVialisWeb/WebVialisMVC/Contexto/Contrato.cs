@@ -17,8 +17,8 @@ namespace WebVialisMVC.Contexto
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Contrato()
         {
-            this.trabajador_asignado = new HashSet<trabajador_asignado>();
-            this.Usuarios = new HashSet<Usuario>();
+            this.Trabajador_asignado = new HashSet<Trabajador_asignado>();
+            this.Usuario = new HashSet<Usuario>();
         }
     
         public string id_contrato { get; set; }
@@ -31,8 +31,8 @@ namespace WebVialisMVC.Contexto
         public string descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<trabajador_asignado> trabajador_asignado { get; set; }
+        public virtual ICollection<Trabajador_asignado> Trabajador_asignado { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Usuario> Usuarios { get; set; }
+        public virtual ICollection<Usuario> Usuario { get; set; }
     }
 }

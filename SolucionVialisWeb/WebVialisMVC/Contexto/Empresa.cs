@@ -20,10 +20,10 @@ namespace WebVialisMVC.Contexto
             this.Acta_reunion = new HashSet<Acta_reunion>();
             this.Stock_RRFF_EMPRESA = new HashSet<Stock_RRFF_EMPRESA>();
             this.Trabajador_empresa = new HashSet<Trabajador_empresa>();
-            this.Proyectoes = new HashSet<Proyecto>();
+            this.Proyecto = new HashSet<Proyecto>();
         }
     
-        public string rol_unico_tributario { get; set; }
+        public string rol { get; set; }
         public string nombre_empresa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -33,6 +33,6 @@ namespace WebVialisMVC.Contexto
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Trabajador_empresa> Trabajador_empresa { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Proyecto> Proyectoes { get; set; }
+        public virtual ICollection<Proyecto> Proyecto { get; set; }
     }
 }

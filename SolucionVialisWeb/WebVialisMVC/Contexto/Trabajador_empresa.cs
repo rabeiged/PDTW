@@ -17,20 +17,20 @@ namespace WebVialisMVC.Contexto
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Trabajador_empresa()
         {
-            this.descuentoes = new HashSet<descuento>();
-            this.trabajador_asignado = new HashSet<trabajador_asignado>();
+            this.Descuento = new HashSet<Descuento>();
+            this.Trabajador_asignado = new HashSet<Trabajador_asignado>();
         }
     
-        public string run { get; set; }
+        public string Persona_run { get; set; }
         public decimal id_trabajador { get; set; }
         public string oficio_profesion { get; set; }
-        public string rol_unico_tributario { get; set; }
+        public string rol { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<descuento> descuentoes { get; set; }
+        public virtual ICollection<Descuento> Descuento { get; set; }
         public virtual Empresa Empresa { get; set; }
         public virtual Persona Persona { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<trabajador_asignado> trabajador_asignado { get; set; }
+        public virtual ICollection<Trabajador_asignado> Trabajador_asignado { get; set; }
     }
 }

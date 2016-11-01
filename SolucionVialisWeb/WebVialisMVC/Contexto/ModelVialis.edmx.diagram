@@ -4,40 +4,40 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5ed95212624246da98a2c2cd281c7ae2" Name="Diagram1">
+      <Diagram DiagramId="1f15b64c720b401eaf76d073d3266bbd" Name="Diagram1">
         <EntityTypeShape EntityType="vialisModel.Acta_reunion" Width="1.5" PointX="5.25" PointY="17.25" IsExpanded="true" />
         <EntityTypeShape EntityType="vialisModel.AFP" Width="1.5" PointX="6" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="vialisModel.Asistencia" Width="1.5" PointX="5.25" PointY="21.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="vialisModel.boleta" Width="1.5" PointX="0.75" PointY="19.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="vialisModel.categoria" Width="1.5" PointX="0.75" PointY="26.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="vialisModel.ciudad" Width="1.5" PointX="1.5" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="vialisModel.comuna" Width="1.5" PointX="1.5" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="vialisModel.Boleta" Width="1.5" PointX="0.75" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="vialisModel.Categoria" Width="1.5" PointX="0.75" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="vialisModel.Comuna" Width="1.5" PointX="1.5" PointY="11.625" IsExpanded="true" />
         <EntityTypeShape EntityType="vialisModel.Contrato" Width="1.5" PointX="9" PointY="27.125" IsExpanded="true" />
         <EntityTypeShape EntityType="vialisModel.Cotizacion" Width="1.5" PointX="8.25" PointY="19.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="vialisModel.descuento" Width="1.5" PointX="8.25" PointY="10.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="vialisModel.detalle_boleta" Width="1.5" PointX="16.5" PointY="21.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="vialisModel.detalle_cotizacion" Width="1.5" PointX="13.5" PointY="20.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="vialisModel.detalle_participacion" Width="1.5" PointX="10.5" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="vialisModel.Descuento" Width="1.5" PointX="8.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="vialisModel.Detalle_boleta" Width="1.5" PointX="16.5" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="vialisModel.Detalle_cotizacion" Width="1.5" PointX="13.5" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="vialisModel.Detalle_participacion" Width="1.5" PointX="10.5" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="vialisModel.Empresa" Width="1.5" PointX="0.75" PointY="15.625" IsExpanded="true" />
         <EntityTypeShape EntityType="vialisModel.Etapa" Width="1.5" PointX="8.25" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="vialisModel.Factura" Width="1.5" PointX="7.375" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="vialisModel.Factura" Width="1.5" PointX="6" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="vialisModel.Hito" Width="1.5" PointX="10.5" PointY="15" IsExpanded="true" />
         <EntityTypeShape EntityType="vialisModel.Inspeccion_tecnica" Width="1.5" PointX="15" PointY="13.875" IsExpanded="true" />
         <EntityTypeShape EntityType="vialisModel.Pago" Width="1.5" PointX="3.75" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="vialisModel.participante" Width="1.5" PointX="8.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="vialisModel.Participante" Width="1.5" PointX="8.25" PointY="6.625" IsExpanded="true" />
         <EntityTypeShape EntityType="vialisModel.Persona" Width="1.5" PointX="3.75" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="vialisModel.producto" Width="1.5" PointX="11.25" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="vialisModel.Producto" Width="1.5" PointX="11.25" PointY="23.25" IsExpanded="true" />
         <EntityTypeShape EntityType="vialisModel.Proveedor" Width="1.5" PointX="1.5" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="vialisModel.Provincia" Width="1.5" PointX="1.5" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="vialisModel.Proyecto" Width="1.5" PointX="3" PointY="18.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="vialisModel.region" Width="1.5" PointX="1.5" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="vialisModel.registro_avance" Width="1.5" PointX="15" PointY="16.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="vialisModel.seguro_salud" Width="1.5" PointX="6" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="vialisModel.Region" Width="1.5" PointX="1.5" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="vialisModel.Registro_avance" Width="1.5" PointX="15" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="vialisModel.Seguro_salud" Width="1.5" PointX="6" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="vialisModel.Stock_RRFF_EMPRESA" Width="1.5" PointX="3" PointY="15.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="vialisModel.stock_RRFF_PROYECTO" Width="1.5" PointX="8.25" PointY="23.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="vialisModel.subcategoria" Width="1.5" PointX="3" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="vialisModel.Stock_RRFF_PROYECTO" Width="1.5" PointX="8.25" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="vialisModel.Subcategoria" Width="1.5" PointX="3" PointY="26.25" IsExpanded="true" />
         <EntityTypeShape EntityType="vialisModel.Sueldo" Width="1.5" PointX="13.5" PointY="23.5" IsExpanded="true" />
         <EntityTypeShape EntityType="vialisModel.Tarea" Width="1.5" PointX="12.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="vialisModel.trabajador_asignado" Width="1.5" PointX="11.25" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="vialisModel.Trabajador_asignado" Width="1.5" PointX="11.25" PointY="19.125" IsExpanded="true" />
         <EntityTypeShape EntityType="vialisModel.Trabajador_empresa" Width="1.5" PointX="6" PointY="13.375" IsExpanded="true" />
         <EntityTypeShape EntityType="vialisModel.Usuario" Width="1.5" PointX="1.5" PointY="2.25" IsExpanded="true" />
         <AssociationConnector Association="vialisModel.relacion_acta_detalle" ManuallyRouted="false" />
@@ -54,14 +54,13 @@
         <AssociationConnector Association="vialisModel.relacion_categoria_stockempresa" ManuallyRouted="false" />
         <AssociationConnector Association="vialisModel.relacion_categoria_subcategoria" ManuallyRouted="false" />
         <AssociationConnector Association="vialisModel.relacion_ciudad_comuna" ManuallyRouted="false" />
-        <AssociationConnector Association="vialisModel.relacion_region_ciudad" ManuallyRouted="false" />
         <AssociationConnector Association="vialisModel.relacion_comuna_persona" ManuallyRouted="false" />
         <AssociationConnector Association="vialisModel.relacion_contrato_trabajadorasignado" ManuallyRouted="false" />
         <AssociationConnector Association="vialisModel.relacion_contrato_usuario" ManuallyRouted="false" />
         <AssociationConnector Association="vialisModel.relacion_cotizacion_detalle" ManuallyRouted="false" />
         <AssociationConnector Association="vialisModel.relacion_proveedor_cotizacion" ManuallyRouted="false" />
         <AssociationConnector Association="vialisModel.Relacion_proyecto_cotizacion" ManuallyRouted="false" />
-        <AssociationConnector Association="vialisModel.descuento_Trabajador_empresa_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="vialisModel.Descuento_Trabajador_empresa_FK" ManuallyRouted="false" />
         <AssociationConnector Association="vialisModel.relacion_seguro_dscto" ManuallyRouted="false" />
         <AssociationConnector Association="vialisModel.relacion_producto_detalle_boleta" ManuallyRouted="false" />
         <AssociationConnector Association="vialisModel.relacion_producto_detalle_cotizacion" ManuallyRouted="false" />
@@ -76,12 +75,13 @@
         <AssociationConnector Association="vialisModel.Relacion_hito_tarea" ManuallyRouted="false" />
         <AssociationConnector Association="vialisModel.Relacion_tarea_inspecciont" ManuallyRouted="false" />
         <AssociationConnector Association="vialisModel.relacion_usuario_pago" ManuallyRouted="false" />
-        <AssociationConnector Association="vialisModel.herencia_persona_trabajadorempre" ManuallyRouted="false" />
+        <AssociationConnector Association="vialisModel.FK_ASS_1" ManuallyRouted="false" />
+        <AssociationConnector Association="vialisModel.relacion_region_ciudad" ManuallyRouted="false" />
         <AssociationConnector Association="vialisModel.relacion_proyecto_sotckproyecto" ManuallyRouted="false" />
         <AssociationConnector Association="vialisModel.relacion_proyecto_trabajdorasignado" ManuallyRouted="false" />
         <AssociationConnector Association="vialisModel.relacion_tarea_avance" ManuallyRouted="false" />
-        <AssociationConnector Association="vialisModel.Relation_57" ManuallyRouted="false" />
-        <AssociationConnector Association="vialisModel.trabajador_asignado_Trabajador_empresa_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="vialisModel.relacion_trabajadorasig__sueldo" ManuallyRouted="false" />
+        <AssociationConnector Association="vialisModel.Trabajador_asignado_Trabajador_empresa_FK" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

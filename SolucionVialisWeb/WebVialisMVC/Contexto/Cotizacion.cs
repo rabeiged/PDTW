@@ -17,7 +17,7 @@ namespace WebVialisMVC.Contexto
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Cotizacion()
         {
-            this.detalle_cotizacion = new HashSet<detalle_cotizacion>();
+            this.Detalle_cotizacion = new HashSet<Detalle_cotizacion>();
         }
     
         public string id_cotizacion { get; set; }
@@ -26,7 +26,7 @@ namespace WebVialisMVC.Contexto
         public string id_proveedor { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<detalle_cotizacion> detalle_cotizacion { get; set; }
+        public virtual ICollection<Detalle_cotizacion> Detalle_cotizacion { get; set; }
         public virtual Proveedor Proveedor { get; set; }
         public virtual Proyecto Proyecto { get; set; }
     }

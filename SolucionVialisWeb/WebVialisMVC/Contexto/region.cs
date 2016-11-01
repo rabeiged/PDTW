@@ -12,18 +12,18 @@ namespace WebVialisMVC.Contexto
     using System;
     using System.Collections.Generic;
     
-    public partial class region
+    public partial class Region
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public region()
+        public Region()
         {
-            this.ciudads = new HashSet<ciudad>();
+            this.Provincia = new HashSet<Provincia>();
         }
     
         public decimal id_region { get; set; }
         public string nombre_region { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ciudad> ciudads { get; set; }
+        public virtual ICollection<Provincia> Provincia { get; set; }
     }
 }

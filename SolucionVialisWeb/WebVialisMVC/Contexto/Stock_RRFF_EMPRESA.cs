@@ -15,15 +15,15 @@ namespace WebVialisMVC.Contexto
     public partial class Stock_RRFF_EMPRESA
     {
         public string id_material { get; set; }
-        public string rol_unico_tributario { get; set; }
+        public string rol { get; set; }
         public string marca { get; set; }
         public string nombre_producto { get; set; }
         public Nullable<decimal> cantidad { get; set; }
         public string id_boleta { get; set; }
         public Nullable<decimal> id_categoria { get; set; }
     
-        public virtual boleta boleta { get; set; }
-        public virtual categoria categoria { get; set; }
+        public virtual Boleta Boleta { get; set; }
+        public virtual Categoria Categoria { get; set; }
         public virtual Empresa Empresa { get; set; }
     }
 }

@@ -12,13 +12,13 @@ namespace WebVialisMVC.Contexto
     using System;
     using System.Collections.Generic;
     
-    public partial class producto
+    public partial class Producto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public producto()
+        public Producto()
         {
-            this.detalle_boleta = new HashSet<detalle_boleta>();
-            this.detalle_cotizacion = new HashSet<detalle_cotizacion>();
+            this.Detalle_boleta = new HashSet<Detalle_boleta>();
+            this.Detalle_cotizacion = new HashSet<Detalle_cotizacion>();
         }
     
         public string id_producto { get; set; }
@@ -27,8 +27,8 @@ namespace WebVialisMVC.Contexto
         public string marca { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<detalle_boleta> detalle_boleta { get; set; }
+        public virtual ICollection<Detalle_boleta> Detalle_boleta { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<detalle_cotizacion> detalle_cotizacion { get; set; }
+        public virtual ICollection<Detalle_cotizacion> Detalle_cotizacion { get; set; }
     }
 }

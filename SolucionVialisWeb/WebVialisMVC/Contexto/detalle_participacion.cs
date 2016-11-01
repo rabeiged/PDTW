@@ -12,13 +12,13 @@ namespace WebVialisMVC.Contexto
     using System;
     using System.Collections.Generic;
     
-    public partial class detalle_participacion
+    public partial class Detalle_participacion
     {
         public decimal id_detalle_participacion { get; set; }
         public string id_reunion { get; set; }
         public string run { get; set; }
     
         public virtual Acta_reunion Acta_reunion { get; set; }
-        public virtual participante participante { get; set; }
+        public virtual Participante Participante { get; set; }
     }
 }

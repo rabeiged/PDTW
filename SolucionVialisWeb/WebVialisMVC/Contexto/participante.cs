@@ -12,12 +12,12 @@ namespace WebVialisMVC.Contexto
     using System;
     using System.Collections.Generic;
     
-    public partial class participante
+    public partial class Participante
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public participante()
+        public Participante()
         {
-            this.detalle_participacion = new HashSet<detalle_participacion>();
+            this.Detalle_participacion = new HashSet<Detalle_participacion>();
         }
     
         public string run { get; set; }
@@ -27,6 +27,6 @@ namespace WebVialisMVC.Contexto
         public string responsabilidad { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<detalle_participacion> detalle_participacion { get; set; }
+        public virtual ICollection<Detalle_participacion> Detalle_participacion { get; set; }
     }
 }

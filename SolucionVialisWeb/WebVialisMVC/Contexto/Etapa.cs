@@ -18,7 +18,7 @@ namespace WebVialisMVC.Contexto
         public Etapa()
         {
             this.Acta_reunion = new HashSet<Acta_reunion>();
-            this.Hitoes = new HashSet<Hito>();
+            this.Hito = new HashSet<Hito>();
         }
     
         public string id_etapa { get; set; }
@@ -34,7 +34,7 @@ namespace WebVialisMVC.Contexto
         public virtual ICollection<Acta_reunion> Acta_reunion { get; set; }
         public virtual Factura Factura { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Hito> Hitoes { get; set; }
+        public virtual ICollection<Hito> Hito { get; set; }
         public virtual Proyecto Proyecto { get; set; }
     }
 }

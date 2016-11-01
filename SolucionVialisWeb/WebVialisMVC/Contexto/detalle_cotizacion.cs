@@ -12,7 +12,7 @@ namespace WebVialisMVC.Contexto
     using System;
     using System.Collections.Generic;
     
-    public partial class detalle_cotizacion
+    public partial class Detalle_cotizacion
     {
         public string id_detalle_cotizacion { get; set; }
         public Nullable<decimal> cantidad { get; set; }
@@ -21,6 +21,6 @@ namespace WebVialisMVC.Contexto
         public string id_producto { get; set; }
     
         public virtual Cotizacion Cotizacion { get; set; }
-        public virtual producto producto { get; set; }
+        public virtual Producto Producto { get; set; }
     }
 }

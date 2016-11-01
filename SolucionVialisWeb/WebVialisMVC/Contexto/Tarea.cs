@@ -18,7 +18,7 @@ namespace WebVialisMVC.Contexto
         public Tarea()
         {
             this.Inspeccion_tecnica = new HashSet<Inspeccion_tecnica>();
-            this.registro_avance = new HashSet<registro_avance>();
+            this.Registro_avance = new HashSet<Registro_avance>();
         }
     
         public string id_tarea { get; set; }
@@ -34,6 +34,6 @@ namespace WebVialisMVC.Contexto
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Inspeccion_tecnica> Inspeccion_tecnica { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<registro_avance> registro_avance { get; set; }
+        public virtual ICollection<Registro_avance> Registro_avance { get; set; }
     }
 }

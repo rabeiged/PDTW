@@ -12,13 +12,13 @@ namespace WebVialisMVC.Contexto
     using System;
     using System.Collections.Generic;
     
-    public partial class subcategoria
+    public partial class Subcategoria
     {
         public decimal id_subcategoria { get; set; }
         public string nombre_subcategoria { get; set; }
         public string descripcion { get; set; }
         public Nullable<decimal> id_categoria { get; set; }
     
-        public virtual categoria categoria { get; set; }
+        public virtual Categoria Categoria { get; set; }
     }
 }

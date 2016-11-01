@@ -12,18 +12,18 @@ namespace WebVialisMVC.Contexto
     using System;
     using System.Collections.Generic;
     
-    public partial class seguro_salud
+    public partial class Seguro_salud
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public seguro_salud()
+        public Seguro_salud()
         {
-            this.descuentoes = new HashSet<descuento>();
+            this.Descuento = new HashSet<Descuento>();
         }
     
-        public string id_seguro_sald { get; set; }
+        public decimal id_seguro_sald { get; set; }
         public string nombre_seg_sald { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<descuento> descuentoes { get; set; }
+        public virtual ICollection<Descuento> Descuento { get; set; }
     }
 }

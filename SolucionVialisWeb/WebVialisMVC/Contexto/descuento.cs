@@ -12,17 +12,17 @@ namespace WebVialisMVC.Contexto
     using System;
     using System.Collections.Generic;
     
-    public partial class descuento
+    public partial class Descuento
     {
         public decimal id_descto { get; set; }
-        public Nullable<decimal> porc_descto { get; set; }
-        public string id_AFP { get; set; }
-        public string id_seguro_sald { get; set; }
-        public string Trabajador_empresa_run { get; set; }
-        public Nullable<decimal> Trabajador_empresa_id_trabajador { get; set; }
+        public Nullable<double> porc_descto { get; set; }
+        public Nullable<decimal> id_seguro_sald { get; set; }
+        public Nullable<decimal> id_AFP { get; set; }
+        public string Persona_run { get; set; }
+        public Nullable<decimal> id_trabajador { get; set; }
     
         public virtual AFP AFP { get; set; }
         public virtual Trabajador_empresa Trabajador_empresa { get; set; }
-        public virtual seguro_salud seguro_salud { get; set; }
+        public virtual Seguro_salud Seguro_salud { get; set; }
     }
 }

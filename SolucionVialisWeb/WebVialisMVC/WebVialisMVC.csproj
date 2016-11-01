@@ -147,6 +147,13 @@
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Contexto\ModelVialis.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelVialis.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Contexto\ModelVialis.edmx.diagram">
+      <DependentUpon>ModelVialis.edmx</DependentUpon>
+    </Content>
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
@@ -164,16 +171,13 @@
     <Compile Include="Contexto\Asistencia.cs">
       <DependentUpon>ModelVialis.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexto\boleta.cs">
+    <Compile Include="Contexto\Boleta.cs">
       <DependentUpon>ModelVialis.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexto\categoria.cs">
+    <Compile Include="Contexto\Categoria.cs">
       <DependentUpon>ModelVialis.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexto\ciudad.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\comuna.cs">
+    <Compile Include="Contexto\Comuna.cs">
       <DependentUpon>ModelVialis.tt</DependentUpon>
     </Compile>
     <Compile Include="Contexto\Contrato.cs">
@@ -182,16 +186,16 @@
     <Compile Include="Contexto\Cotizacion.cs">
       <DependentUpon>ModelVialis.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexto\descuento.cs">
+    <Compile Include="Contexto\Descuento.cs">
       <DependentUpon>ModelVialis.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexto\detalle_boleta.cs">
+    <Compile Include="Contexto\Detalle_boleta.cs">
       <DependentUpon>ModelVialis.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexto\detalle_cotizacion.cs">
+    <Compile Include="Contexto\Detalle_cotizacion.cs">
       <DependentUpon>ModelVialis.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexto\detalle_participacion.cs">
+    <Compile Include="Contexto\Detalle_participacion.cs">
       <DependentUpon>ModelVialis.tt</DependentUpon>
     </Compile>
     <Compile Include="Contexto\Empresa.cs">
@@ -227,37 +231,40 @@
     <Compile Include="Contexto\Pago.cs">
       <DependentUpon>ModelVialis.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexto\participante.cs">
+    <Compile Include="Contexto\Participante.cs">
       <DependentUpon>ModelVialis.tt</DependentUpon>
     </Compile>
     <Compile Include="Contexto\Persona.cs">
       <DependentUpon>ModelVialis.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexto\producto.cs">
+    <Compile Include="Contexto\Producto.cs">
       <DependentUpon>ModelVialis.tt</DependentUpon>
     </Compile>
     <Compile Include="Contexto\Proveedor.cs">
       <DependentUpon>ModelVialis.tt</DependentUpon>
     </Compile>
+    <Compile Include="Contexto\Provincia.cs">
+      <DependentUpon>ModelVialis.tt</DependentUpon>
+    </Compile>
     <Compile Include="Contexto\Proyecto.cs">
       <DependentUpon>ModelVialis.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexto\region.cs">
+    <Compile Include="Contexto\Region.cs">
       <DependentUpon>ModelVialis.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexto\registro_avance.cs">
+    <Compile Include="Contexto\Registro_avance.cs">
       <DependentUpon>ModelVialis.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexto\seguro_salud.cs">
+    <Compile Include="Contexto\Seguro_salud.cs">
       <DependentUpon>ModelVialis.tt</DependentUpon>
     </Compile>
     <Compile Include="Contexto\Stock_RRFF_EMPRESA.cs">
       <DependentUpon>ModelVialis.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexto\stock_RRFF_PROYECTO.cs">
+    <Compile Include="Contexto\Stock_RRFF_PROYECTO.cs">
       <DependentUpon>ModelVialis.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexto\subcategoria.cs">
+    <Compile Include="Contexto\Subcategoria.cs">
       <DependentUpon>ModelVialis.tt</DependentUpon>
     </Compile>
     <Compile Include="Contexto\Sueldo.cs">
@@ -266,7 +273,7 @@
     <Compile Include="Contexto\Tarea.cs">
       <DependentUpon>ModelVialis.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexto\trabajador_asignado.cs">
+    <Compile Include="Contexto\Trabajador_asignado.cs">
       <DependentUpon>ModelVialis.tt</DependentUpon>
     </Compile>
     <Compile Include="Contexto\Trabajador_empresa.cs">
@@ -279,6 +286,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Proyecto.cs" />
     <Compile Include="Models\UserBusinessLogic.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -290,13 +298,6 @@
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EntityDeploy Include="Contexto\ModelVialis.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelVialis.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Contexto\ModelVialis.edmx.diagram">
-      <DependentUpon>ModelVialis.edmx</DependentUpon>
     </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

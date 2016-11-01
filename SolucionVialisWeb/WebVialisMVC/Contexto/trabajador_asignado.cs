@@ -12,25 +12,25 @@ namespace WebVialisMVC.Contexto
     using System;
     using System.Collections.Generic;
     
-    public partial class trabajador_asignado
+    public partial class Trabajador_asignado
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public trabajador_asignado()
+        public Trabajador_asignado()
         {
-            this.Sueldoes = new HashSet<Sueldo>();
+            this.Sueldo = new HashSet<Sueldo>();
         }
     
         public decimal id_asignacion { get; set; }
         public string responsabilidad { get; set; }
         public string id_contrato { get; set; }
         public string id_proyecto { get; set; }
-        public string Trabajador_empresa_run { get; set; }
-        public Nullable<decimal> Trabajador_empresa_id_trabajador { get; set; }
+        public string Persona_run { get; set; }
+        public Nullable<decimal> id_trabajador { get; set; }
     
         public virtual Contrato Contrato { get; set; }
         public virtual Proyecto Proyecto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sueldo> Sueldoes { get; set; }
+        public virtual ICollection<Sueldo> Sueldo { get; set; }
         public virtual Trabajador_empresa Trabajador_empresa { get; set; }
     }
 }

@@ -7,12 +7,14 @@ using System.Web.Mvc;
 using WebVialisMVC.Models;
 using System.Data.SqlClient;
 using System.Web.Script.Serialization;
+using PagedList;
 
 namespace WebVialisMVC.Controllers
 {
     public class TrabajadorController : Controller
     {
         UserBusinessLogic UserBL = new UserBusinessLogic();
+        Proyecto pro = new Proyecto();
 
         // GET: Login
         public ActionResult Login()
@@ -127,7 +129,7 @@ namespace WebVialisMVC.Controllers
         }
 
         //GET: Liquidaciones
-        public ActionResult Liquidaciones()
+        public ActionResult Liquidaciones(int? page)
         {
             // Restricción a vistas (sesión iniciada)
             if (Session["usuario"] == null)
@@ -136,25 +138,54 @@ namespace WebVialisMVC.Controllers
             }
             else
             {
-                return View();
+                ViewData["mensaje"] = ".";
+                int tamano_pagina = 1;
+                int n_pagina = (page ?? 1);
+                ViewData["funcion"] = "0";
+                return View(pro.Proyectos().AsEnumerable().ToPagedList(n_pagina, tamano_pagina));
             }
         }
 
         // Buscar proyecto
         [HttpPost]
-        public ActionResult Buscar(string proyecto)
+        public ActionResult Buscar(string proyecto, int? page)
         {
-            string message = "";
-
             if (string.IsNullOrEmpty(proyecto))
             {
-                message = "Debe ingresar el código del proyecto.";
-                return View();
+                ViewData["mensaje"] = "Debe ingresar el código del proyecto.";
+                return View("Liquidaciones");
             }
             else
             {
-                return View();
+                ViewData["mensaje"] = ".";
+                int tamano_pagina = 1;
+                int n_pagina = (page ?? 1);
+                ViewData["funcion"] = "1";
+                return View("Liquidaciones", pro.BuscarProyecto(proyecto).AsEnumerable().ToPagedList(n_pagina, tamano_pagina));
             }
+        }
+
+        // Filtrar proyectos
+        [HttpPost]
+        public ActionResult Filtrar(string fecha1, string fecha2)
+        {
+            if (string.IsNullOrEmpty(fecha1) || string.IsNullOrEmpty(fecha2))
+            {
+                ViewData["mensaje"] = "Debe ingresar ambas fechas.";
+            }
+            else
+            {
+                ViewData["mensaje"] = ".";
+                try
+                {
+                    ViewData.Model = pro.BuscarProyectosPorFecha(Convert.ToDateTime(fecha1), Convert.ToDateTime(fecha2)).AsEnumerable();
+                }
+                catch(Exception ex)
+                {
+                    ViewData["mensaje"] = "Error en una de las fechas, por favor ingrese nuevamente.";
+                }
+            }
+            return View("Liquidaciones");
         }
 
         // Validación inicio de sesión

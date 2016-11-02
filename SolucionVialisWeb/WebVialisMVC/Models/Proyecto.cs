@@ -14,6 +14,30 @@ namespace WebVialisMVC.Models
         // String de conexión
         string conStr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
+        public DataTable Proyectos()
+        {
+            using (SqlConnection conObj = new SqlConnection(conStr))
+            {
+                try
+                {
+                    SqlDataAdapter adapter;
+                    SqlCommand comObjt = new SqlCommand("Proyectos", conObj);
+                    comObjt.CommandType = CommandType.StoredProcedure;
+                    conObj.Open();
+
+                    adapter = new SqlDataAdapter(comObjt);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    conObj.Close();
+                    return dt;
+                }
+                catch (SqlException ex)
+                {
+                    return null;
+                }
+            }
+        }
+
         public DataTable BuscarProyecto(string proyecto)
         {
             using (SqlConnection conObj = new SqlConnection(conStr))

@@ -140,29 +140,12 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="Contexto\ModelVialis.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelVialis.edmx</DependentUpon>
-      <LastGenOutput>ModelVialis.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Contexto\ModelVialis.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelVialis.edmx</DependentUpon>
-      <LastGenOutput>ModelVialis.cs</LastGenOutput>
-    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Contexto\ModelVialis.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelVialis.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Contexto\ModelVialis.edmx.diagram">
-      <DependentUpon>ModelVialis.edmx</DependentUpon>
-    </Content>
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
@@ -171,126 +154,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Contexto\Acta_reunion.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\AFP.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Asistencia.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Boleta.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Categoria.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Comuna.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Contrato.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Cotizacion.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Descuento.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Detalle_boleta.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Detalle_cotizacion.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Detalle_participacion.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Empresa.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Etapa.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Factura.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Hito.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Inspeccion_tecnica.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\ModelVialis.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelVialis.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\ModelVialis.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\ModelVialis.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelVialis.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Pago.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Participante.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Persona.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Producto.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Proveedor.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Provincia.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Proyecto.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Region.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Registro_avance.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Seguro_salud.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Stock_RRFF_EMPRESA.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Stock_RRFF_PROYECTO.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Subcategoria.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Sueldo.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Tarea.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Trabajador_asignado.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Trabajador_empresa.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\Usuario.cs">
-      <DependentUpon>ModelVialis.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\TrabajadorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -305,9 +168,6 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="packages.config" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
@@ -327,6 +187,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\datepicker\" />
+    <Folder Include="Contexto\" />
     <Folder Include="scripts\datepicker\" />
     <Folder Include="scripts\locales\" />
   </ItemGroup>

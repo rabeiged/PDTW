@@ -101,9 +101,9 @@ namespace WebVialisMVC.Controllers
                     }
 
                     // Validando existencia de campo id trabajador
-                    if (dt.Rows[0].Field<decimal>(5) != 0)
+                    if (dt.Rows[0].Field<int>(5) != 0)
                     {
-                        ViewData["id"] = dt.Rows[0].Field<decimal>(5);
+                        ViewData["id"] = dt.Rows[0].Field<int>(5);
                     }
                     else
                     {
@@ -201,7 +201,7 @@ namespace WebVialisMVC.Controllers
             else
             {
                 // Validación de usuario
-                if(UserBL.ValidarUsuario(usuario) > 0)
+                if(!String.IsNullOrEmpty(UserBL.ValidarUsuario(usuario)))
                 {
                     message = "Success";
                     Session["usuario"] = usuario.run;

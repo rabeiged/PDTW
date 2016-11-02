@@ -15,7 +15,7 @@ namespace WebVialisMVC.Models
         string conStr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
         // Función validación de usuario (Devuelve 1 si es correcto)
-        public int ValidarUsuario(Usuario usuario)
+        public string  ValidarUsuario(Usuario usuario)
         {
             using (SqlConnection conObj = new SqlConnection(conStr))
             {
@@ -25,7 +25,9 @@ namespace WebVialisMVC.Models
                 comObjt.Parameters.Add(new SqlParameter("@run_user", usuario.run));
                 comObjt.Parameters.Add(new SqlParameter("@passw", usuario.password));
                 conObj.Open();
-                return Convert.ToInt32(comObjt.ExecuteScalar());
+
+                return comObjt.ExecuteScalar().ToString();
+                //return Convert.ToInt32(comObjt.ExecuteScalar());
             }
         }
 
